@@ -1,12 +1,12 @@
-# 2180m
+# NEBUL\
 
-### [Mood in Pixels](http://moods2180.herokuapp.com/)
+### [NEBUL\](http://nebula.herokuapp.com/)
 
-This application will track your daily mood with one click.
+This application will track your state of mind with a single click.
 
-It has been developed to allow users a overview of their weekly, monthly and yearly state of mind.
+Each emotional state is represented by a color to this app. For each day a user logs onto the site and chooses the color that best represents their mood, their choice will be stored into a database. All entries are available for future review in the form of a personalized, unique spectrum.
 
-Each emotional state is represented by a colour in this app. For each day a user logs onto the site and chooses the color that best represents their mood, their choice will be stored to a database. All entries are available for future review in the form of a personalized, unique spectrum, including both date and location of use.
+Users can choose to complete missons that are scientifically proven to help elevate and improve mood, as well as add notes to document their day.
 
 The compiled data will provided an overview of the mental state of the user, as well as insight to how seasons, weather, and location affects their moods.
 
@@ -55,10 +55,14 @@ Deployment is through Heroku using JAWs for MySQL data base requirements.
 
 * [Sequelize](http://docs.sequelizejs.com/)
 * [Passport](http://www.passportjs.org/)
+* [React](http://www.reactjs.org)
 * [modernizr](https://modernizr.com/)
 * [Wow](http://mynameismatthieu.com/WOW/)
 * [Granim](https://sarcadass.github.io/granim.js/)
 * [Slick](https://github.com/kenwheeler/slick/)
+* [Canvas](https://github.com/hustcc/canvas-nest.js)
+* [Particles.js](https://vincentgarreau.com/particles.js/)
+* [Materialize](https://materializecss.com)
 * [Path](https://nodejs.org/api/path.html)
 * [Bootstrap](https://getbootstrap.com/)
 * [Google Fonts](https://fonts.google.com/)
