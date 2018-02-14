@@ -11,24 +11,24 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-    app.get("/emotions", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/emotions/emotions.html"));
-  });
+  //   app.get("/emotions", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/emotions/emotions.html"));
+  // });
     app.get("/memos", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/memos/memos.html"));
   });
     app.get("/missions", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/missions/missions.html"));
   });
-    app.get("/about", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/about/about.html"));
-  });
-    app.get("/moodmap", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
-  });
-    app.get("/meditate", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/meditate/meditate.html"));
-  });
+  //   app.get("/about", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/about/about.html"));
+  // });
+  //   app.get("/moodmap", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
+  // });
+  //   app.get("/meditate", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/meditate/meditate.html"));
+  // });
 
 
     app.get("/signup", function(req, res) {
