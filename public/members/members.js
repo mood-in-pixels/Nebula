@@ -183,11 +183,13 @@ function hex(x) {
 var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
   monthsNum = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+
+
   moodGraph = document.getElementById('moodGraph');
-// Append rows and set year
-var year = moment().format('YYYY');
-// console.log("year-- " + year);
-for (var i = 0; i < days.length; i++) {
+  // Append rows and set year
+  var year = moment().format('YYYY');
+  // console.log("year-- " + year);
+  for (var i = 0; i < days.length; i++) {
   moodGraph.innerHTML = moodGraph.innerHTML + ('<div class="row cal-row" id="' + months[i] + '"><p class="monthLabel">' + months[i].substr(0, 3) + '</p><div class="inner"></div></div>');
   // Append columns
   for (var h = 0; h < days[i]; h++) {

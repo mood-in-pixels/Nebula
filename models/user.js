@@ -11,7 +11,7 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    // The email cannot be null, and must be a proper email before creation. It must be unique. 
+    // The email cannot be null, and must be a proper email before creation. It must be unique.
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -52,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
-    User.hasMany(models.Mood, {
+    User.hasMany(models.Emotions, {
       foreignKey: {
         allowNull: false
       }
