@@ -1,0 +1,62 @@
+  @import url('https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Raleway:200');
+  /* Only important for font-family uniformity & footer position */
+
+  nav, h1, h2, h3, footer {
+    font-family: 'Raleway Dots', sans-serif;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    text-align: center;
+    align-content: center;
+  }
+  a {
+    letter-spacing: .3em;
+  }
+  a:hover {
+    color: #000;
+    text-shadow: .5px .5px #d363ff;
+    text-decoration: none;
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  body {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+  }
+  .icon-btn {
+    /*margin: 10%;*/
+    display: block;
+    float: center;
+  }
+  .missionRow {
+    /*border: 1px solid red;*/
+  }
+  .missionCard {
+    padding: 5%;
+    align-content: center;
+    /*border: 1px solid silver;*/
+  }
+  .material-tooltip>.backdrop {
+    background: linear-gradient(rgba(8, 0, 17, .8), rgba(0, 0, 0, .8));
+  }
+  .material-tooltip>span {
+    font-size: 1em;
+    padding: 10px;
+    font-family: 'Roboto';
+    letter-spacing: .02em;
+    text-align: center;
+  }
+  .tap-target-content>h5 {
+    font-family: 'Raleway Dots', sans-serif;
+    letter-spacing: .4em;
+  }
+  .tap-target-content>p {
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: .8em;
+    letter-spacing: .05em;
+  }

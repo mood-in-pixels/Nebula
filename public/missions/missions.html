@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>N E B U L \</title>
+  <!-- Compiled and minified CSS ~ Boostrap 3.3.7  -->
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+  <!-- $jQuery 3.3.1 CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Compiled and minified CSS ~ Materialize -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
+  <!-- Compiled and minified JS ~ Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!--  Icons ~ Material -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="missions.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- *********** NAVBAR *********** -->
+  <!-- NavBar Dropdown Structure -->
+  <ul class="dropdown-content" id="dropdown1">
+    <li><a href="#!">A 1</a></li>
+    <li><a href="#!">A 2</a></li>
+    <li><a href="#!">A 3</a></li>
+  </ul>
+  <!-- NavBar Wrapper -->
+  <nav>
+    <div class="nav-wrapper black">
+      <a class="brand-logo center" href="#">NEBUL\</a>
+      <ul class="left hide-on-med-and-down" id="nav-mobile">
+        <!-- NavBar Dropdown Trigger -->  
+        <li><a class="dropdown-button" data-activates="dropdown1" href="#!"><i class="material-icons right">more_vert</i></a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down" id="nav-mobile">
+        <!-- Sign up -->
+        <li><a href="#"><i class="material-icons">account_circle</i></a></li>
+        <!-- Login -->
+        <li><a href="#"><i class="material-icons">help</i></a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- *********** END NAVBAR *********** -->
+  
+<!-- *********** MAIN CONTENT ********** -->
+  <!-- Instruction Feature Container -->
+  <div class="container">
+    <a class="instruction black btn btn-floating" id="menu"><i class="material-icons">hdr_strong</i></a> <!-- Tap Target Structure -->
+    <div class="tap-target black" data-activates="menu">
+      <div class="tap-target-content">
+        <h5>MISSIONS</h5>
+        <p>Welcome to your missions page.<br>
+        <br>
+        Hover over the icons to view each mission. Tap the icon to add the mission to your daily, weekly, or monthly routine.<br>
+        <br>
+        Each mission is simple, but powerful. Backed by considerable research and praise.<br>
+        <br>
+        Think of it as a simple commitment to yourself.<br><em><small>Tap the pulsing button to close this feature.</small></em></p>
+      </div>
+    </div><br>
+    <br>
+
+    <!-- Mission Container -->
+    <div class="row missionRow center-align">
+      <!-- Meditate -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light indigo accent-1 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Meditate" data-position="left" data-tooltip="<strong>M E D I T A T E</strong><br><small><em class='text-muted'>daily</em><hr>Find your bliss, whether it's meditation, prayer, or reflection — <br>that mental calm and focus can help your body too, reducing <br> stress and even lowering blood pressure. Adhereing to <br> daily practice optimizes these benefits.<hr>Click the icon to add to your Missions! </small>"><i class="material-icons">all_inclusive</i></a>
+      </div>
+      <!-- Yoga -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light deep-purple darken-3 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Yoga" data-position="bottom" data-tooltip="<strong>Y O G A</strong><br><small><em class='text-muted'>weekly</em><hr>Yoga connects your body, mind, and soul. <br>Feel strong inside and out, build lean muscle, and improve <br> flexibility by going to yoga class once a week. <hr>Click the icon to add to your Missions! </small>"><i class="material-icons">spa</i></a>
+      </div>
+      <!-- Exercise -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light lime darken-2 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Exercise" data-position="right" data-tooltip="<strong>E X E R C I S E</strong><br><small><em class='text-muted'>weekly</em><hr>Exercise sparks the release of feel-good endorphins, <br> and satifies the human need to perform and excel.<br>Breaking a sweat 3 times a week can boost your mood by 84% <hr> Click the icon to add to your Missions! </small>"><i class="material-icons">directions_bike</i></a>
+      </div>
+    </div>
+    <div class="row missionRow center-align">
+      <!-- Sleep -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light blue darken-2 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Sleep Hygiene" data-position="left" data-tooltip="<strong>S L E E P</strong><br><small><em class='text-muted'>daily</em><hr>Most adults need around 7 or 8 hours of solid <br> sleep a night to feel good, focus on work, and stay healthy.<br> If you need more sleep, try to get to bed earlier, and don't <br>exercise or drink caffeine or eat big meals before bed.<hr> Click the icon to add to your Missions!</small"><i class="material-icons">hotel</i></a>
+      </div>
+      <!-- Eat Well -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light red accent-2 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Eat Well" data-position="top" data-tooltip="<strong>E A T W E L L</strong><br><small><em class='text-muted'>daily</em><hr>Investing time and energy into understanding what your <br> body needs is essential to our health and well-being.<br> Be mindful of your eating habits. Honor your body's <br>nutritional needs and aim for a healthy, balanced diet.<hr> Click the icon to add to your Missions!</small"><i class="material-icons">local_dining</i></a>
+      </div>
+      <!-- Socializing -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light teal accent-4 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Socialize" data-position="right" data-tooltip="<strong>S O C I A L I Z E</strong><br><small><em class='text-muted'>weekly</em><hr>Surrounding yourself with friends can help you feel happier. <br> Socializing combats loneliness and improves overall mental health. <br> Pets count too! Spend some time with a furry friend, and <br>you’ll experience those mood-lifting effects instantly!<hr> Click the icon to add to your Missions!</small"><i class="material-icons">people</i></a>
+      </div>
+    </div>
+    <div class="row missionRow center-align">
+      <!-- Gratitude -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light purple accent-3 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Gratitude" data-position="left" data-tooltip="<strong>G R A T I T U D E</strong><br><small><em class='text-muted'>daily</em><hr>When things aren't going your way, it's easy to lose sight <br> of the good stuff. Think of one thing you're grateful for each day. <br> It'll improve you're optimistism and stress management.<hr> Click the icon to add to your Missions!</small"><i class="material-icons">loyalty</i></a>
+      </div>
+      <!-- Writing -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light orange darken-2 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Write" data-position="top" data-tooltip="<strong>W R I T E</strong><br><small><em class='text-muted'>daily</em><hr>Whether it's a list to help manage daily stressors, <br>a simple record of your day, a way to work out your feelings, <br>or a creative outlet, journaling can help you better understand <br>yourself, your body, and your place in the world.<hr>Click the icon to add to your Missions!</small"><i class="material-icons">mode_edit</i></a>
+      </div>
+      <!-- Volunteer -->
+      <div class='missionCard btn-group'>
+        <a class="btn-floating btn-large waves-effect waves-light pink accent-2 icon-btn btn tooltipped" data-delay="50" data-html="true" data-mission="Volunteer" data-position="right" data-tooltip="<strong>V O L U N T E E R</strong><br><small><em class='text-muted'>monthly</em><hr>Helping others is key to helping yourself. <br> Researchers believe volunteering boosts happiness <br> because it increases empathy, which makes you <br>appreciate all the good stuff in your own life.<hr> Click the icon to add to your Missions!</small"><i class="material-icons">assignment</i></a>
+      </div>
+    </div>
+  </div>
+<!-- *********** END MAIN CONTENT *********** -->
+
+<!-- *********** FOOTER *********** -->
+  <footer class="footer page-footer black">
+    <div class="footer-copyright">
+      <div class="container text-center">
+        © 2018 NEBUL\
+      </div>
+    </div>
+  </footer>
+<!-- *********** END FOOTER *********** -->
+  <!-- Custom JS -->
+  <script src="missions.js" type="text/javascript"></script>
+</body>
+</html>
