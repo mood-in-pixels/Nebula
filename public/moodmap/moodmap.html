@@ -25,45 +25,30 @@
 <body>
 <!-- *********** NAVBAR *********** -->
 	<!-- NavBar Dropdown Structure -->
-	<ul class="dropdown-content" id="dropdown1">
-		<li>
-			<a href="#!">1</a>
-		</li>
-		<li>
-			<a href="#!">2</a>
-		</li>
-		<li>
-			<a href="#!">3</a>
-		</li>
+	<ul id="dropdown1" class="dropdown-content">
+	  <li><a href="/emotions">Daily</a></li>
+	  <li><a href="/missions">Missions</a></li>
+	  <!-- <li class="divider"></li> -->
+	  <li><a href="/memos">Memos</a></li>
 	</ul>
-	<!-- NavBar Wrapper -->
 	<nav>
-		<div class="nav-wrapper black">
-			<a class="brand-logo center" href="#">NEBUL\</a>
-			<ul class="left hide-on-med-and-down" id="nav-mobile">
-				<!-- NavBar Dropdown Trigger -->
-				<li>
-					<a class="dropdown-button" data-activates="dropdown1" href="#!"><i class="material-icons right">more_vert</i></a>
-				</li>
-				<li>
-					<a href="#">LINK</a>
-				</li>
-				<li>
-					<a href="#">LINK</a>
-				</li>
-			</ul>
-			<ul class="right hide-on-med-and-down" id="nav-mobile">
-				<!-- Sign up -->
-				<li>
-					<a href="#"><i class="material-icons">account_circle</i></a>
-				</li>
-				<!-- Login -->
-				<li>
-					<a href="#"><i class="material-icons">help</i></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	    <div class="nav-wrapper black">
+	      <a href="#" class="brand-logo center"><i class="material-icons">bubble_chart</i></a>
+	      <ul id="nav-mobile" class="left hide-on-med-and-down">
+	  <!-- Dropdown Trigger -->
+	        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">MOODS</a></li>
+	        <li><a href="/meditate">MEDITATE</a></li>
+	        <li><a href="/moodmap">MAP</a></li>
+	        <li><a href="/about">ABOUT</a></li>
+	      </ul>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <!-- <li><a href="#">SIGNUP</a></li> -->
+	        <li><a href="/login"><i class="material-icons">account_circle</i></a></li>
+	        <li><a href="/signup"><i class="material-icons">help</i></a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	<br>
 <!-- *********** END NAVBAR *********** -->
 	
 
@@ -438,7 +423,8 @@
 
 <!-- *********** END MAIN CONTENT *********** -->
 	<script type="text/javascript">
-	$(document).ready(function() {		
+	$(document).ready(function() {	
+	$(".dropdown-button").dropdown();	
 	// instruction set to open on page load
 			$('.tap-target').tapTarget('open');
 		
