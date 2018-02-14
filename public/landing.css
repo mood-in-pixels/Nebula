@@ -1,0 +1,51 @@
+
+/* ---- reset ---- */
+@import url('https://fonts.googleapis.com/css?family=Codystar:300|Raleway+Dots|Raleway:200');
+
+body, html {
+  font-family: 'Raleway', sans-serif;
+}
+body {
+  margin: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+.brand-logo {
+  font-family: 'Codystar', cursive;
+  font-size: 6em;
+
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+	#canvas-image {
+   
+    display: block;
+    height: 100%;
+    background-color: black;
+  
+    background-position-x: 50%;
+    background-position-y: 65%;
+}
+
+img {
+  
+  margin-left: 400px;
+  margin-top: 200px;
+  height: 225px;
+  
+}
+		}
