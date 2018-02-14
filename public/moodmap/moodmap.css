@@ -15,10 +15,11 @@ h6 {
   font-size: .8em;
   letter-spacing: .2em;
 }
-a>nav {
+a {
   letter-spacing: .2em;
+  font-size: .6em;
 }
-a:hover>nav {
+a:hover > nav {
   color: #000;
   text-shadow: .5px .5px #d363ff;
   text-decoration: none;

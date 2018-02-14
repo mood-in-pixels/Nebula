@@ -23,7 +23,7 @@ module.exports = function(app) {
     app.get("/about", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/about/about.html"));
   });
-    app.get("/map", function(req, res) {
+    app.get("/moodmap", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
   });
     app.get("/meditate", function(req, res) {

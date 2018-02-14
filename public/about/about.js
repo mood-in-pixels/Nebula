@@ -1,4 +1,5 @@
 $(function () {
+  $(".dropdown-button").dropdown();
   $('.accordion').accordion();
 });
 
