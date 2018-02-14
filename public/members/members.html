@@ -10,12 +10,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Compiled and minified CSS ~ Materialize -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
-  <!-- Compiled and minified JS ~ Materialize -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
   <!--  Icons ~ Material -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- MomentJS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.js"></script>
   <!-- Custom CSS -->
-  <link href="missions.css" rel="stylesheet" type="text/css">
+  <link href="members.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!-- *********** NAVBAR *********** -->
@@ -48,7 +49,26 @@
 
 
 <!-- *********** MAIN CONTENT ********** -->
+  <div class="container-fluid">
+  <p class="text-center today"></p>
+    <div class="container colorSelectionBox">
 
+      <div id="colorwheel">
+        <!-- color wheel goes here -->
+      </div>
+
+      <div class="selected-color"></div>
+
+
+    </div> <!-- colorSelectionBox closure -->
+      <br>
+    <div class="container moodCalendar">
+        <div id="moodGraph">
+          <!-- calendar goes here -->
+        </div>
+    </div>
+    <!-- <div class="container mission"></div> -->
+  </div> <!-- container-fluid closure -->
 <!-- *********** END MAIN CONTENT *********** -->
 
 <!-- *********** FOOTER *********** -->

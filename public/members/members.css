@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Raleway:200');
+/* Only important for font-family uniformity & footer position */
+
+nav, h1, h2, h3, footer {
+  font-family: 'Raleway Dots', sans-serif;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  text-align: center;
+  align-content: center;
+}
+a {
+  letter-spacing: .3em;
+}
+a:hover {
+  color: #000;
+  text-shadow: .5px .5px #d363ff;
+  text-decoration: none;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+body {
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+.material-tooltip>.backdrop {
+  background: linear-gradient(rgba(8, 0, 17, .8), rgba(0, 0, 0, .8));
+}
+.material-tooltip>span {
+  font-size: 1em;
+  padding: 10px;
+  font-family: 'Roboto';
+  letter-spacing: .02em;
+  text-align: center;
+}
+.tap-target-content>h5 {
+  font-family: 'Raleway Dots', sans-serif;
+  letter-spacing: .4em;
+}
+.tap-target-content>p {
+  font-family: Roboto;
+  font-weight: 100;
+  font-size: .8em;
+  letter-spacing: .05em;
+}
+
+
+
+
+
+/*.   COLOR WHEEL CSS.
+----------------------------------------------------------------*/
+
+
+ .today {
+  color: white;
+ }
+
+
+/* .active {
+  box-shadow: 1px 1.5px white;
+ }*/
+
+
+ #container {
+  position: fixed; /* Sit on top of the page content */
+ /* display: none; *//* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background-color: rgba(0,0,0,0.5);  Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+ }
+
+ #colorwheel {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  height: 500px;
+ }
+
+ .colorWheelLine {
+  position: absolute;
+  top: 310px;
+  left: 420px;
+  width: 310px;
+  height: 20px -ms-transform-origin: -100px 50%;
+  -webkit-transform-origin: -100px 50%;
+  -moz-transform-origin: -100px 50%;
+  -o-transform-origin: -100px 50%;
+  transform-origin: -100px 50%;
+  opacity: 0.1;
+  border: 1px solid yellow;
+ }
+ .colorWheelLine:hover {
+  opacity: 1;
+ }
+ .selected {
+  opacity: 1;
+ }
+
+ .moodName {
+  display: inline-block;
+  /*width: 60px;*/
+  position: absolute;
+  font-size: 1em;
+  color: transparent;
+ }
+ .moodName:hover {
+  /*col  or: silver;*/
+  display: inline-block;
+  /*width: 60px;*/
+  position: absolute;
+
+ }
+ *:focus {
+  outline: none;
+ }
+ .btn-drop {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  position: absolute;
+ }
+ .btn-drop-color {
+  appearance: none;
+  background-color: red;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-weight: 700;
+  transition: border-radius 200ms ease-in-out;
+  cursor: pointer;
+ }
+
+/* after onClick event of color wheel */
+ .selected-color {
+  border: 1px solid silver;
+  background: transparent;
+  height: 50px;
+  width: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  border-radius: 90%;
+  opacity: 1.0;
+/*  transition: all ease-in .9s;*/
+  transition: background-color .9s ease-in-out .1s;
+}
+
+
+/*
+ .btn-drop, circle {
+  fill: #ecf0f1;
+  animation: drop 1s cubic-bezier(0.7, 0, 1, 1);
+ }
+ @keyframes drop {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+ }*/
+
+
+
+
+ /*.   CALENDAR CSS.
+ ----------------------------------------------------------------*/
+ .moodCalendar >
+  @charset "UTF-8";
+
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800);
+ body, html {
+   background: #041A2E;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+ }
+
+ .container {
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 1024px;
+   padding-bottom: 60px;
+ }
+
+
+
+
+ .cal-row p {
+   color: #50677A;
+   float: left;
+   font-size: 12px;
+   font-weight: 600;
+   letter-spacing: .04em;
+   line-height: 30px;
+   margin: 0 1% 0 0;
+   width: 5%;
+   text-transform: uppercase;
+ }
+
+ @media only screen and (max-width: 560px) {
+   .cal-row p {
+     width: 8%;
+   }
+   .cal-row .inner {
+     width: 91%;
+   }
+ }
+
+ .day {
+   background: #082F52;
+   /*border: 1px solid snow;*/
+   border-radius: 100%;
+   float: left;
+   height: 1.23em;
+   margin: 5.5px;
+   width: 1.23em;
+ }
+ .day.active {
+   /*border: 1px solid snow;*/
+ }
+ .day span {
+   display: none;
+ }
+
+
+
