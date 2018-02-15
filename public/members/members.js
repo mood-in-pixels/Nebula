@@ -1,3 +1,73 @@
+"use strict";
+$(function() {
+  // creating global variables that will be populated with authentification check
+  var user;
+  var user_id;
+
+// authentification request to database
+  $.get("/api/user_data").then(function(data) {
+    user = data.username
+    user_id = data.id
+
+
+
+/*
+    // request to server to get data from database.
+    //Data that is returned contains all user mood entries.
+    $.get("/api/dailymoods", {user_id: user_id}).then(function(data) {
+      var mood_dates = []
+      for (var i = 0; i <   data.length; i++) {
+          mood_dates.push(moment(data[i].mood_date,"YYYY-MM-DD").format("MM/DD/YY"))
+      }
+      // after retrieving data calendar is generated dynamicaly with all user data. default calendar year is 2017
+      $("#year").text(defaultYear)
+      calendar(defaultYear, data, mood_dates);
+
+// after retrieving user data, system checks if user has a selection for today. if selection was made, system hides section that allows user to select again.
+      if($.inArray(moment().format("MM/DD/YY"),mood_dates)>-1) {
+        $("#mood_picker_daily").addClass ("hidden")
+        $("#feelingQuestion").addClass ("hidden")
+      }
+
+      $(document).on("click", "#prev", function() {
+          defaultYear = defaultYear -1
+          $("#year").text(defaultYear)
+          calendar(defaultYear, data, mood_dates);
+        });
+
+      $(document).on("click", "#next", function() {
+          defaultYear = defaultYear +1
+          $("#year").text(defaultYear)
+          calendar(defaultYear, data, mood_dates);
+        });
+
+    });
+*/
+// there are two sets of mood pickers, one is presented at the begining if user did not make a selection yet,
+// second one is in a form of modal when user clicks on empty cell in calendar
+// while database retrieval is happening, this section adds attribute "date" and assigns today's date to it. This helps when submitting data to server.
+
+    // $(".container .picker").attr("date", moment().format("YYYY-MM-DD"))
+
+
+
+
+ // once calendar selection is made this section adds "date" attribute with value that was selected on calendar to modal selector
+
+//     $(document).on("click", "a", function() {
+//         console.log($(this).attr("date"))
+//         $(".modal-content .picker").attr("date", $(this).attr("date"))
+//       });
+  });
+
+
+
+
+
+
+
+
+
 // GLOBAL VARIABLES + KEY FUNCTIONS
 // ===============================================
 
@@ -176,59 +246,44 @@ function hex(x) {
 
 
 
-
 /* ==============================================================================
    CALENDAR SETUP – EST. DAYS / MONTH / YEAR
    ==============================================================================*/
-var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-  monthsNum = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 
 
-  moodGraph = document.getElementById('moodGraph');
-  // Append rows and set year
-  var year = moment().format('YYYY');
-  // console.log("year-- " + year);
-  for (var i = 0; i < days.length; i++) {
-  moodGraph.innerHTML = moodGraph.innerHTML + ('<div class="row cal-row" id="' + months[i] + '"><p class="monthLabel">' + months[i].substr(0, 3) + '</p><div class="inner"></div></div>');
-  // Append columns
-  for (var h = 0; h < days[i]; h++) {
-    // var date = String(i + 1) + '/' + String(h + 1) + '/' + String(2018),
-    element = document.getElementById(months[i]).getElementsByClassName('inner')[0];
-    calendarDate = (i + 1) + '/' + (h + 1) + '/' + 2018
-    if (calendarDate === today) {
-      element.innerHTML = element.innerHTML + ('<div class="day active"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
-    } else {
-      element.innerHTML = element.innerHTML + ('<div class="day"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+    function createCalendar(obj) {
+      var element
+      var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        monthsNum = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      var year = moment().format('YYYY');
+
+      var moodGraph = document.getElementById('moodGraph');
+      for (var i = 0; i < days.length; i++) {
+        moodGraph.innerHTML = moodGraph.innerHTML + ('<div class="row cal-row" id="' + months[i] + '"><p>' + months[i].substr(0, 3) + '</p><p>' + year + '</p><div class="inner"></div></div>');
+      // Append columns
+      for (var h = 0; h < days[i]; h++) {
+        // var date = String(i + 1) + '/' + String(h + 1) + '/' + String(2018),
+        element = document.getElementById(months[i]).getElementsByClassName('inner')[0];
+        calendarDate = (i + 1) + '/' + (h + 1) + '/' + 2018
+        if (calendarDate === today) {
+          element.innerHTML = element.innerHTML + ('<div class="day active"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+        } else {
+          element.innerHTML = element.innerHTML + ('<div class="day"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+        }
+      }
+
+      $(".day").click(function() {
+        var datadate2 = $(this).children().attr('data-date2');
+        console.log('datadate2 ' + datadate2);
+        // important: do not change or remove until considering `datadateKids` date format!!
+
+      });
     }
   }
 
-  // calendar run code (for pushing to array)
-  // ---------------------------------------------------------
-  // Apply active class if data matches
-  // if (moodsLogged.indexOf(today) != -1) {
-  //  // calendarDate = (i + 1) + (h + 1) + 2018
-  //  element.innerHTML = element.innerHTML + ('<div class="day active"><span data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
-  // } else {
-  //  // calendarDate = (i + 1) + (h + 1) + 2018
-  //  // console.log('calendarDate----  ' + calendarDate);
-  //  element.innerHTML = element.innerHTML + ('<div class="day"><span data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
-  // }
-  // NOT adding ONLY retrieving data values from .day
-  // ---------------------------------------------------------
-  $(".day").click(function() {
-    var datadate2 = $(this).children().attr('data-date2');
-    console.log('datadate2 ' + datadate2);
-    // important: do not change or remove until considering `datadateKids` date format!!
 
-  });
-}
-// Reveal animation for calendar
-TweenMax.staggerFrom("h1, .row .cal-row", .5, {
-  y: -15,
-  opacity: 0,
-  delay: .15,
-  ease: SlowMo.easeOut,
-  force3D: true
-}, 0.05);
 
+createCalendar()
+
+});
