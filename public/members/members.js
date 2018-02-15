@@ -1,5 +1,10 @@
 // GLOBAL VARIABLES + KEY FUNCTIONS
 // ===============================================
+  var user_id;
+// authentification request to database
+    $.get("/api/user_data").then(function(data) {
+      user_id = data.id
+  });
 
 var calendarDate;
 var moodArray = ['Irritated', 'Energetic', 'Confident'
@@ -13,36 +18,7 @@ var today = moment().format('M/D/YYYY');
 $(".today").text(today);
 $('.dayIn[data-date2="' + today + '"]').addClass('active');
 var moodIndex = 0
-// var moodsLogged = ['01/01/2018', ];
 
-// function createWheel() {
-//   for (var i = 0; i < 360; i += 15) {
-//     var colorWheelLine = $("<span>")
-//     colorWheelLine.addClass("colorWheelLine")
-//     colorWheelLine.css("transform", "rotate(" + i + "deg)")
-//     var emptyLine = $("<span>")
-//     emptyLine.addClass("emptyLine")
-//     var button = $("<button>")
-//     button.addClass("btn-drop select")
-//     button.attr("id", "d" + i)
-//     button.attr("date", moment().format("MM/DD/YY"))
-//     button.css("transform", "rotate(" + (i * (-1) - 45) + "deg)")
-//     var drop = $("<div>")
-//     drop.addClass("btn-drop-color")
-//     drop.css("backgroundColor", "hsl(" + i + ", 100%, 50%)")
-//     var moodName = $("<span>")
-//     moodName.addClass("moodName");
-//     moodName.css("transform", "rotate(" + i * (-1) + "deg)")
-//     // moodName.css("color", "hsl(" + i + ", 100%, 50%)")
-//     // moodName.text(moodArray[moodIndex])
-//     moodIndex++
-//     button.append(drop);
-//     colorWheelLine.append(emptyLine)
-//     colorWheelLine.append(button)
-//     // colorWheelLine.append(moodName)
-//     $("#colorwheel").append(colorWheelLine)
-//   };
-// }
 
 function createButtons() {
   for (var i = 0; i < 360; i += 15) {
@@ -108,31 +84,6 @@ function hex(x) {
  }
 
 
-
-/* ==============================================================================
-//  ** ON CLICK ** COLOR WHEEL
-   ============================================================================== */
-// var moodsLogged = [];
-// var colorsLogged= [];
-// var hueValue;
-// $(".select").click(function() {
-//  var hueValue = $(this).attr('id').substr(1, 4);
-//  colorsLogged.push(hueValue);
-//  var moodValue = $(this).attr('mood-data');
-//  moodsLogged.push(moodValue);
-//  console.log('today' + today  +" " + hueValue +" "+ moodValue);
-//  $(".selected-color").attr('date-data', today).css("background", "hsl(" + hueValue + ", 95%, 50%)");
-//  $(".active").attr('mood-data', moodValue).attr('color-data', "hsl(" + hueValue + ", 95%, 50%)").attr('date-data', today).css("background", "hsl(" + hueValue + ", 95%, 50%)");
-
-//  console.log('colors array: ' + colorsLogged +' '+ 'moods array: ' + moodsLogged);
-// });
-
-
-
-
-
-
-
  // when any mood is selected in mood picker this section initiates api request to register items into database
    $(document).on("click", ".select", function() {
      event.preventDefault();
@@ -150,8 +101,6 @@ function hex(x) {
     logDailyMood(user_id, userData.emotion, userData.color, userData.emotion_date);
     location.reload();
    });
-
-
 
 
 // function that posts data into database.

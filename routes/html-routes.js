@@ -11,27 +11,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  //   app.get("/emotions", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/emotions/emotions.html"));
-  // });
-    app.get("/memos", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/memos/memos.html"));
-  });
-    app.get("/missions", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/missions/missions.html"));
-  });
-  //   app.get("/about", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/about/about.html"));
-  // });
-  //   app.get("/moodmap", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
-  // });
-  //   app.get("/meditate", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/meditate/meditate.html"));
-  // });
-
-
-    app.get("/signup", function(req, res) {
+  app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
@@ -50,9 +30,24 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.sendFile(path.join(__dirname, "../public/members/members.html"));
   });
 
+  app.get("/missions", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/missions/missions.html"));
+  });
 
+  //   app.get("/about", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/about/about.html"));
+  // });
+  //   app.get("/moodmap", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
+  // });
+  //   app.get("/meditate", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/meditate/meditate.html"));
+  // });
+  //   app.get("/memos", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/memos/memos.html"));
+  // });
 
 };

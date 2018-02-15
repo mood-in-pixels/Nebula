@@ -18,6 +18,11 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
+
+
+  // Route for signup 
+// ==========================================================
+
   app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,
@@ -32,62 +37,9 @@ module.exports = function(app) {
   });
 
 
-    // app.post("/api/dailymoods", function(req, res) {
-    // db.Mood.create({
-    //   mood_id: req.body.mood_id,
-    //   color: req.body.color,
-    //   mood_date: req.body.mood_date,
-    //   DimMoodId: req.body.DimMoodId,
-    //   UserId: req.body.user_id
-    // }).then(function(data) {
-    //       res.json(data);
-    //     });
-    // });
-
-
-    // app.get("/api/dailymoods", function(req, res) {
-    // db.Mood.findAll({
-    //   where: {
-    //   UserId: req.query.user_id
-    // },
-    // include: [db.Dim_moods]
-    // }).then(function(data){
-    //       res.json(data);
-    //     }).catch(function(err) {
-    //     console.log(err);
-    //     res.json(err);
-    //   });
-    // });
-
-
-    // app.get("/api/alldailymoods", function(req, res) {
-    // db.Mood.findAll({}).
-    // then(function(data){
-    //       res.json(data);
-    //     }).catch(function(err) {
-    //     res.json(err);
-    //   });
-    // });
-
-
-
-
-    //   app.get("/api/mood_data", function(req, res){
-    //     db.Dim_moods.findAll({
-    //       where: {
-    //         active : 1
-    //       }
-    //     }).then(function(data){
-    //       res.json(data);
-    //     }).catch(function(err) {
-    //     console.log(err);
-    //     res.json(err);
-    //   });
-    // });
-
-
-
   // Route for logging user out
+// ==========================================================
+
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
@@ -115,6 +67,7 @@ module.exports = function(app) {
 
 
   //// Routes for emotions,
+// ==========================================================
 
 
   app.get("/api/emotions", function(req, res) {
@@ -147,6 +100,7 @@ module.exports = function(app) {
 
 
   //// Routes for missions,
+// ==========================================================
 
 
 
@@ -179,6 +133,7 @@ module.exports = function(app) {
 
 
   //// Routes for memo,
+// ==========================================================
 
 
 
@@ -208,6 +163,62 @@ module.exports = function(app) {
   });
 
 
+// ==========================================================
+// OLD ROUTES
+// ==========================================================
+
+  // app.post("/api/dailymoods", function(req, res) {
+  // db.Mood.create({
+  //   mood_id: req.body.mood_id,
+  //   color: req.body.color,
+  //   mood_date: req.body.mood_date,
+  //   DimMoodId: req.body.DimMoodId,
+  //   UserId: req.body.user_id
+  // }).then(function(data) {
+  //       res.json(data);
+  //     });
+  // });
+
+
+  // app.get("/api/dailymoods", function(req, res) {
+  // db.Mood.findAll({
+  //   where: {
+  //   UserId: req.query.user_id
+  // },
+  // include: [db.Dim_moods]
+  // }).then(function(data){
+  //       res.json(data);
+  //     }).catch(function(err) {
+  //     console.log(err);
+  //     res.json(err);
+  //   });
+  // });
+
+
+  // app.get("/api/alldailymoods", function(req, res) {
+  // db.Mood.findAll({}).
+  // then(function(data){
+  //       res.json(data);
+  //     }).catch(function(err) {
+  //     res.json(err);
+  //   });
+  // });
+
+
+
+
+  //   app.get("/api/mood_data", function(req, res){
+  //     db.Dim_moods.findAll({
+  //       where: {
+  //         active : 1
+  //       }
+  //     }).then(function(data){
+  //       res.json(data);
+  //     }).catch(function(err) {
+  //     console.log(err);
+  //     res.json(err);
+  //   });
+  // });
 
 
 
