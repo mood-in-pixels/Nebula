@@ -11,9 +11,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  //   app.get("/emotions", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/emotions/emotions.html"));
-  // });
+    app.get("/members", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/members/members.html"));
+  });
     app.get("/memos", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/memos/memos.html"));
   });
@@ -49,9 +49,9 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
-  });
+  // app.get("/members", isAuthenticated, function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/members.html"));
+  // });
 
 
 
