@@ -37,6 +37,10 @@ $(function() {
       if($.inArray(moment().format("M/D/YYYY"),emotion_dates)>-1) {
 
         $("#colorwheel").addClass("hidden")
+      } else {
+        createButtons()
+        placeInCircle("btn-drop", "colorwheel", 140)
+        placeInCircle("moodName", "colorwheel", 0)
       }
     });
 
@@ -104,9 +108,9 @@ function placeInCircle(ItemClass, ItemLocation, radius) {
 }
 
 
-createButtons()
-placeInCircle("btn-drop", "colorwheel", 140)
-placeInCircle("moodName", "colorwheel", 0)
+// createButtons()
+// placeInCircle("btn-drop", "colorwheel", 140)
+// placeInCircle("moodName", "colorwheel", 0)
 
 
 
