@@ -52,9 +52,9 @@ body {
   letter-spacing: .05em;
 }
 
-/*.hidden {
+.hidden {
   display: none;
-}*/
+}
 
 
 
@@ -221,13 +221,30 @@ body {
    /*#082F52;*/
    border-radius: 100%;
    float: left;
-   height: 1.23em;
+   height: 1.24em;
    margin: 5.5px;
-   width: 1.23em;
+   width: 1.24em;
  }
  .day.active {
    /*border: 1px solid snow;*/
  }
+
+ .day.positive {
+  height: 0.75em;
+  width: 1.22em;
+  border-radius: 0;
+  border-top-left-radius: 0.62em;
+  border-top-right-radius: 0.62em;
+ }
+
+ .day.negative {
+  height: 0.75em;
+  width: 1.22em;
+  border-radius: 0;
+  border-bottom-left-radius: 0.62em;
+  border-bottom-right-radius: 0.62em;
+ }
+
  .day span {
    display: none;
  }

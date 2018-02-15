@@ -20,7 +20,7 @@ module.exports = function(app) {
   // otherwise send back an error
 
 
-  // Route for signup 
+  // Route for signup
 // ==========================================================
 
   app.post("/api/signup", function(req, res) {
@@ -90,7 +90,8 @@ module.exports = function(app) {
     Emotion: req.body.emotion,
     Color: req.body.color,
     Emotion_Date: req.body.emotion_date,
-    UserId: req.body.user_id
+    UserId: req.body.user_id,
+    Positive_Emotion: req.body.positive_emotion
   }).then(function(data) {
       res.json(data);
     });

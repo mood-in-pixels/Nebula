@@ -13,6 +13,10 @@ module.exports = function(sequelize, DataTypes) {
     Emotion_Date: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+    Positive_Emotion: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   });
 
