@@ -55,8 +55,8 @@ var flash = require('express-flash');
                       });
 
                       var mailOptions = {
-                        to: 'laura.seanna@gmail.com',
-                        from: 'nebula1@demo.com',
+                        to: user.email,
+                        from: 'reset@NEBULA.com',
                         subject: 'Password Reset',
                         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -127,7 +127,7 @@ var flash = require('express-flash');
               res.redirect('/');
             });
           });
-         
+
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
