@@ -49,9 +49,32 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/members", isAuthenticated, function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/members.html"));
-  // });
+  
+  app.get("/forgot", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/reset");
+    }
+    res.sendFile(path.join(__dirname, "../public/forgot.html"));
+  });
+
+   app.get("/forgotMessage", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/reset");
+    }
+    res.sendFile(path.join(__dirname, "../public/forgotMessage.html"));
+  });
+
+  app.get("/reset/:token", function(req, res) {
+    console.log('new route---------------')
+    if (req.user) {
+      res.redirect("/login");
+    }
+    res.sendFile(path.join(__dirname, "../public/reset.html"));
+  });
+
+
 
 
 
