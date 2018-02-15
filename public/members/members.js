@@ -11,38 +11,27 @@ $(function() {
 
 
 
-/*
+
     // request to server to get data from database.
     //Data that is returned contains all user mood entries.
-    $.get("/api/dailymoods", {user_id: user_id}).then(function(data) {
-      var mood_dates = []
+    $.get("/api/emotions", {
+      user_id: user_id
+    })
+    .then(function(data) {
+      var emotion_dates = []
       for (var i = 0; i <   data.length; i++) {
-          mood_dates.push(moment(data[i].mood_date,"YYYY-MM-DD").format("MM/DD/YY"))
+          emotion_dates.push(moment(data[i].Emotion_Date,"YYYY-MM-DD").format("M/D/YYYY"))
       }
       // after retrieving data calendar is generated dynamicaly with all user data. default calendar year is 2017
-      $("#year").text(defaultYear)
-      calendar(defaultYear, data, mood_dates);
-
+      createCalendar(data,emotion_dates);
+      console.log(emotion_dates)
 // after retrieving user data, system checks if user has a selection for today. if selection was made, system hides section that allows user to select again.
-      if($.inArray(moment().format("MM/DD/YY"),mood_dates)>-1) {
-        $("#mood_picker_daily").addClass ("hidden")
-        $("#feelingQuestion").addClass ("hidden")
+      if($.inArray(moment().format("M/D/YYYY"),emotion_dates)>-1) {
+
+        $("#colorwheel").addClass("hidden")
       }
-
-      $(document).on("click", "#prev", function() {
-          defaultYear = defaultYear -1
-          $("#year").text(defaultYear)
-          calendar(defaultYear, data, mood_dates);
-        });
-
-      $(document).on("click", "#next", function() {
-          defaultYear = defaultYear +1
-          $("#year").text(defaultYear)
-          calendar(defaultYear, data, mood_dates);
-        });
-
     });
-*/
+
 // there are two sets of mood pickers, one is presented at the begining if user did not make a selection yet,
 // second one is in a form of modal when user clicks on empty cell in calendar
 // while database retrieval is happening, this section adds attribute "date" and assigns today's date to it. This helps when submitting data to server.
@@ -83,6 +72,9 @@ var moodArray = ['Irritated', 'Energetic', 'Confident'
 , 'Envious', 'Jealous', 'Compassionate', 'Loving', 'Warm'
 , 'Frustrated', 'Angry'
 ]
+var positiveEmotion = [false,true,true,true,false,false,false,true,true,true
+,false,true,true,false,false,false,false,false,false,true,true,true,false,false
+]
 // Setting today's date
 var today = moment().format('M/D/YYYY');
 $(".today").text(today);
@@ -98,15 +90,16 @@ function createButtons() {
     drop.addClass("btn-drop-color")
     drop.attr("date", moment().format("MM/DD/YY"))
     drop.css("background", "hsl(" + i + ", 100%, 50%)")
+    drop.attr('mood-data', moodArray[moodIndex])
+    drop.attr('positive-emotion', positiveEmotion[moodIndex])
     var moodName = $("<span>");
     // drop.addClass("moodName");
     moodName.addClass("moodName");
     moodName.css("color","hsl(" + i + ", 100%, 50%)");
-    drop.attr('mood-data', moodArray[moodIndex])
     moodName.text(moodArray[moodIndex])
-    moodIndex++
     $("#colorwheel").append(moodName)
     $("#colorwheel").append(drop)
+    moodIndex++
   };
 }
 
@@ -200,7 +193,8 @@ function hex(x) {
    ==============================================================================*/
 
 
-    function createCalendar(obj) {
+    function createCalendar(data, emotion_dates) {
+      console.log(data)
       var element
       var days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         monthsNum = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
@@ -208,6 +202,7 @@ function hex(x) {
       var year = moment().format('YYYY');
 
       var moodGraph = document.getElementById('moodGraph');
+
       for (var i = 0; i < days.length; i++) {
         moodGraph.innerHTML = moodGraph.innerHTML + ('<div class="row cal-row" id="' + months[i] + '"><p>' + months[i].substr(0, 3) + '</p><p>' + year + '</p><div class="inner"></div></div>');
       // Append columns
@@ -215,8 +210,11 @@ function hex(x) {
         // var date = String(i + 1) + '/' + String(h + 1) + '/' + String(2018),
         element = document.getElementById(months[i]).getElementsByClassName('inner')[0];
         calendarDate = (i + 1) + '/' + (h + 1) + '/' + 2018
-        if (calendarDate === today) {
-          element.innerHTML = element.innerHTML + ('<div class="day active"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+
+
+        if ($.inArray(calendarDate,emotion_dates)>-1) {
+          let emotion_index=($.inArray(calendarDate,emotion_dates))
+          element.innerHTML = element.innerHTML + ('<div class="day" style="background-color: '+data[emotion_index].Color+'"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
         } else {
           element.innerHTML = element.innerHTML + ('<div class="day"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
         }
@@ -231,8 +229,5 @@ function hex(x) {
     }
   }
 
-
-
-createCalendar()
-
 });
+
