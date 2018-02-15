@@ -36,7 +36,7 @@ $(function() {
       // after retrieving user data, system checks if user has a selection for today. if selection was made, system hides section that allows user to select again.
       if($.inArray(moment().format("M/D/YYYY"),emotion_dates)>-1) {
 
-        // $("#colorwheel").addClass("hidden")
+        $("#colorwheel").addClass("hidden")
       }
     });
 
@@ -65,7 +65,7 @@ function createButtons() {
     var drop = $("<button>")
     drop.addClass("btn-drop select")
     drop.attr("id", "d" + i)
-    drop.addClass("btn-drop-color")
+    drop.addClass("combination"+i)
     drop.attr("date", moment().format("MM/DD/YY"))
     drop.css("background", "hsl(" + i + ", 100%, 50%)")
     drop.attr('mood-data', moodArray[moodIndex])
@@ -73,10 +73,11 @@ function createButtons() {
     var moodName = $("<span>");
     // drop.addClass("moodName");
     moodName.addClass("moodName");
+    moodName.addClass("combination"+i)
     moodName.css("color","hsl(" + i + ", 100%, 50%)");
     moodName.text(moodArray[moodIndex])
-    $("#colorwheel").append(moodName)
     $("#colorwheel").append(drop)
+    $("#colorwheel").append(moodName)
     moodIndex++
   };
 }
@@ -105,7 +106,7 @@ function placeInCircle(ItemClass, ItemLocation, radius) {
 
 createButtons()
 placeInCircle("btn-drop", "colorwheel", 140)
-placeInCircle("moodName", "colorwheel", 200)
+placeInCircle("moodName", "colorwheel", 0)
 
 
 

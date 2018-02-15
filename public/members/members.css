@@ -97,61 +97,69 @@ body {
   height: 500px;
  }
 
- .colorWheelLine {
-  position: absolute;
-  top: 310px;
-  left: 420px;
-  width: 310px;
-  height: 20px -ms-transform-origin: -100px 50%;
-  -webkit-transform-origin: -100px 50%;
-  -moz-transform-origin: -100px 50%;
-  -o-transform-origin: -100px 50%;
-  transform-origin: -100px 50%;
-  opacity: 0.1;
-  border: 1px solid yellow;
- }
- .colorWheelLine:hover {
+
+.combination0:hover ~ .combination0
+,.combination15:hover ~ .combination15
+,.combination30:hover ~ .combination30
+,.combination45:hover ~ .combination45
+,.combination60:hover ~ .combination60
+,.combination75:hover ~ .combination75
+,.combination90:hover ~ .combination90
+,.combination105:hover ~ .combination105
+,.combination120:hover ~ .combination120
+,.combination135:hover ~ .combination135
+,.combination150:hover ~ .combination150
+,.combination165:hover ~ .combination165
+,.combination180:hover ~ .combination180
+,.combination195:hover ~ .combination195
+,.combination210:hover ~ .combination210
+,.combination225:hover ~ .combination225
+,.combination240:hover ~ .combination240
+,.combination255:hover ~ .combination255
+,.combination270:hover ~ .combination270
+,.combination285:hover ~ .combination285
+,.combination300:hover ~ .combination300
+,.combination315:hover ~ .combination315
+,.combination330:hover ~ .combination330
+,.combination345:hover ~ .combination345
+{
   opacity: 1;
- }
- .selected {
+}
+
+.combination0:hover ,.combination15:hover,.combination30:hover,.combination45:hover,
+.combination60:hover,.combination75:hover,.combination90:hover,.combination105:hover,
+.combination120:hover,.combination135:hover,.combination150:hover,.combination165:hover,
+.combination180:hover,.combination195:hover,.combination210:hover,.combination225:hover,
+.combination240:hover,.combination255:hover,.combination270:hover,.combination285:hover,
+.combination300:hover,.combination315:hover,.combination330:hover,.combination345:hover
+{
   opacity: 1;
- }
+}
 
  .moodName {
+  opacity: 0;
   display: inline-block;
-  /*width: 60px;*/
   position: absolute;
-  font-size: 1em;
+  font-size: 2.5em;
   color: transparent;
  }
- .moodName:hover {
-  /*col  or: silver;*/
-  display: inline-block;
-  /*width: 60px;*/
-  position: absolute;
 
- }
  *:focus {
   outline: none;
  }
+
  .btn-drop {
+  opacity: 0.3;
   appearance: none;
   border: 0;
   background-color: transparent;
   padding: 0;
   margin: 0;
-  font-size: 14px;
-  position: absolute;
- }
- .btn-drop-color {
-  appearance: none;
-  background-color: red;
-  border-radius: 100%;
   width: 20px;
   height: 20px;
-  font-weight: 700;
-  transition: border-radius 200ms ease-in-out;
+  position: absolute;
   cursor: pointer;
+  border-radius: 100%;
  }
 
 /* after onClick event of color wheel */
