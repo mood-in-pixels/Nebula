@@ -5,128 +5,7 @@ var async = require('async');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var flash = require('express-flash');
-// =========================================================================================================================================
-// Forgot password token
-// =========================================================================================================================================
-            // route if user forgets password
-        app.get('/forgot', function(req, res) {
-            res.render('forgot', {
-                user: req.user.email
-            });
 
-        });//close of get forget
-
-
-        app.post('/forgot', function (req, res, next) {
-          console.log('we hit the /fogot route !!!!');
-
-
-          async.waterfall([
-            function(done) {
-              crypto.randomBytes(20, function(err, buf) {
-                var token = buf.toString('hex');
-                console.log('WE JUST MADE THIS TOKEN!!!', token);
-                done(err, token);
-              });
-            },
-            function(token, done) {
-              console.log('req.body.email', req.body);
-
-
-              db.User.find({ where: { email: req.body.email } })
-                .then(function(user) {
-                  // Check if record exists in db
-                  console.log('we found this user -------', user);
-                  if (user) {
-                    user.updateAttributes({
-                      token: token
-                    })
-                    .then(function(weUpdatedThis) {
-                      console.log('we updated this user!!!', weUpdatedThis);
-
-                      let transporter = nodemailer.createTransport({
-                          host: 'smtp.sendgrid.net',
-                          port: 587,
-                          secure: false, // true for 465, false for other ports
-                          auth: {
-                              user: 'Nebula1',
-                              pass: 'Nebula123'
-                          }
-                      });
-
-                      var mailOptions = {
-                        to: user.email,
-                        from: 'reset@NEBULA.com',
-                        subject: 'Password Reset',
-                        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-                          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-                          'http://' + req.headers.host + '/reset/' + token + '\n\n' +
-                          'If you did not request this, please ignore this email and your password will remain unchanged.\n'
-                      };//close of mailOptions(52)
-               
-                //       // send mail with defined transport object
-                      transporter.sendMail(mailOptions, (error, info) => {
-                          if (error) {
-                              return console.log('error from nodemailer !!!!!!',error);
-                          }
-                          console.log('Message sent: %s', info.messageId);
-                          // Preview only available when sending through an Ethereal account
-                          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-                          console.log('right before redirect!!!!');
-                          res.redirect('/');
-                          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-                          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-                      });
-                     
-                    });
-                  }
-                });
-
-                
-
-            }
-          ])
-          
-          
-        });
-// ==========================================================================================================================================
-// Reset User Password
-// ==========================================================================================================================================
-
-        app.post('/reset', function(req, res) {
-          console.log(req.body, req.params);
-            async.waterfall([
-              function(done) {
-
-                db.User.find({ where: { token: req.body.token } })
-                .then(function(user) {
-
-                   console.log('we found this user!---------', user);
-                  if (user) {
-                     user.updateAttributes({
-                        password: req.body.password,
-                        token: null
-                     })
-                     .then(function(weUpdatedThisPassword){
-                      res.redirect('/');
-                      console.log('we updated this users password----', weUpdatedThisPassword);
-                     })
-                  }
-
-                  user.save(function(err) {
-                    req.logIn(user, function(err) {
-                      
-                      done(err, user);
-            
-                    });
-                  });
-                });
-              },
-             
-            ], function(err) {
-              res.redirect('/');
-            });
-          });
 
 
 module.exports = function(app) {
@@ -289,7 +168,128 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+// =========================================================================================================================================
+// Forgot password token
+// =========================================================================================================================================
+            // route if user forgets password
+        app.get('/forgot', function(req, res) {
+            res.render('forgot', {
+                user: req.user.email
+            });
 
+        });//close of get forget
+
+
+        app.post('/forgot', function (req, res, next) {
+          console.log('we hit the /fogot route !!!!');
+
+
+          async.waterfall([
+            function(done) {
+              crypto.randomBytes(20, function(err, buf) {
+                var token = buf.toString('hex');
+                console.log('WE JUST MADE THIS TOKEN!!!', token);
+                done(err, token);
+              });
+            },
+            function(token, done) {
+              console.log('req.body.email', req.body);
+
+
+              db.User.find({ where: { email: req.body.email } })
+                .then(function(user) {
+                  // Check if record exists in db
+                  console.log('we found this user -------', user);
+                  if (user) {
+                    user.updateAttributes({
+                      token: token
+                    })
+                    .then(function(weUpdatedThis) {
+                      console.log('we updated this user!!!', weUpdatedThis);
+
+                      let transporter = nodemailer.createTransport({
+                          host: 'smtp.sendgrid.net',
+                          port: 587,
+                          secure: false, // true for 465, false for other ports
+                          auth: {
+                              user: 'Nebula1',
+                              pass: 'Nebula123'
+                          }
+                      });
+
+                      var mailOptions = {
+                        to: user.email,
+                        from: 'reset@NEBULA.com',
+                        subject: 'Password Reset',
+                        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                          'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+                          'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+                      };//close of mailOptions(52)
+               
+                //       // send mail with defined transport object
+                      transporter.sendMail(mailOptions, (error, info) => {
+                          if (error) {
+                              return console.log('error from nodemailer !!!!!!',error);
+                          }
+                          console.log('Message sent: %s', info.messageId);
+                          // Preview only available when sending through an Ethereal account
+                          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                          console.log('right before redirect!!!!');
+                          res.redirect('/');
+                          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+                          // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+                      });
+                     
+                    });
+                  }
+                });
+
+                
+
+            }
+          ])
+          
+          
+        });
+// ==========================================================================================================================================
+// Reset User Password
+// ==========================================================================================================================================
+
+        app.post('/reset', function(req, res) {
+          console.log(req.body, req.params);
+            async.waterfall([
+              function(done) {
+
+                db.User.find({ where: { token: req.body.token } })
+                .then(function(user) {
+
+                   console.log('we found this user!---------', user);
+                  if (user) {
+                     user.updateAttributes({
+                        password: req.body.password,
+                        token: null
+                     })
+                     .then(function(weUpdatedThisPassword){
+                      res.redirect('/');
+                      console.log('we updated this users password----', weUpdatedThisPassword);
+                     })
+                  }
+
+                  user.save(function(err) {
+                    req.logIn(user, function(err) {
+                      
+                      done(err, user);
+            
+                    });
+                  });
+                });
+              },
+             
+            ], function(err) {
+              res.redirect('/');
+            });
+          });
 
 // ==========================================================
 // OLD ROUTES
