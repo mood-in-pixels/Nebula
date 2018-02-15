@@ -1,6 +1,6 @@
 # NEBUL\
 
-### [NEBUL\](http://nebula.herokuapp.com/)
+### [NEBUL\\](http://nebula.herokuapp.com/)
 
 This application will track your state of mind with a single click.
 
