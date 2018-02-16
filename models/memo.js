@@ -2,7 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Memo = sequelize.define("Memo", {
     Memo_Text: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     Memo_Date: {
       type: DataTypes.DATE,

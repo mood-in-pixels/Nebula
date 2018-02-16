@@ -1,116 +1,94 @@
- // $(document).ready(function() {
-	"use strict";
-	$(function() {
-	  // let user;
+/*==================================================================*/
+//  MEMOS
+/*==================================================================*/
+'use strict';
+$(function() {
+	
+	// Global Variables
+	/*-------------------------------------------------- */
 	let user_id;
-	// let active_memos =[];
-	// navbar dropdown
+	let today = moment().format('MM/DD/YYYY');
+	
+	// Navbar Dropdown
+	/*-------------------------------------------------- */
 	$(".dropdown-button").dropdown();
-
-	// instructional feature discovery
-	// $('.tap-target').tapTarget('open');
-	$(".instruction").click(function() {
-		if ($('.tap-target').tapTarget('open')){
-			$('.tap-target').tapTarget('close');
-		}
-		else {$('.tap-target').tapTarget('open');}
-	});
+	
+	// Collapse Memo Collection
+	/*-------------------------------------------------- */
+	$('.collapsible').collapsible();
+	$('.memoList').collapsible('open', 0);
 	
 
-	// $(".icon-btn").click(function() {
-	// 	var mission = $(this).attr('data-mission');
-	// 	console.log('Mission Selected ------ ' + mission)
-	// 	var $toastContent = $('<span>' + mission + ' added!</span>').add($('<button data-mission=' + mission + ' class=" btn-flat undoMission toast-action">UNDO</button>'));
-	// 	Materialize.toast($toastContent, 10000);
-	// });
+/*==================================================================*/
+//  <--> OPERATIONS <-->
+/*==================================================================*/
 
+	//  GET  <- request user ID from DB
+	//--------------------------------------------------
+	$.get("/api/user_data").then(function(data) {
+		user_id = data.id;
 
+		// GET  <- request user memos from DB
+		//--------------------------------------------------
+		$.get("/api/memos", {
+			user_id: user_id
+		}).then(function(data) {
+			for (var m = 0; m < data.length; m++) {
+				var memoID = data[m].id;
+				var memoText = data[m].Memo_Text;
+				var memoDate = data[m].Memo_Date;
+				console.log('BINGO!--- ' + memoID + " | " + memoText + " | " + memoDate);
+			}
+			// call viewActiveMemos() passing data obj
+			viewActiveMemos(data);
+		});
+	});
 
-	// authentification request to database
-	  $.get("/api/user_data").then(function(data) {
-	    // user = data.username
-	    user_id = data.id
+	// Submit Memo
+	//--------------------------------------------------
+	$(document).on("click", "#submit-memo", function() {
+		// when a user submits the memo api request initiated to register memo into DB
+		event.preventDefault();
+		var memo_text = $('.memo').val();
+		var memo_date = today;
+		var userData = {
+			memo_text: memo_text,
+			memo_date: memo_date,
+		};
+		// after data is captured, api request is submitted via logDailyMemos function
+		logDailyMemos(user_id, userData.memo_text, userData.memo_date);
+		location.reload();
+	});
 
-	    // Request sent to server to retrieve user's active missions from database.
-	    $.get("/api/memos", {
-	      user_id: user_id
-	    })
-	    .then(function(data) {
-	    	let active_memos = [];
-	      for (let i = 0; i < data.length; i++) {
-	          active_memos.push(data[i].Memo_Text);
-	      }
-	          viewActiveMemos(data, active_memos);
-
-	    });
-	      
-	  });
-
-	 
-	// GLOBAL VARIABLES + KEY FUNCTIONS
-	// ===============================================
-
-	// Setting today's date
-	var today = moment().format('MM/DD/YYYY');
-
-	 // when any mood is selected in mood picker this section initiates api request to register items into database
-	   $(document).on("click", "#submit-memo", function() {
-	   	var memoText = $('.memo').val();
-	   	
-	   	// if(!memoText){
-	   	// 	$('.memo').attr('placeholder', 'Please enter text in the appropriate fields before submitting your memo.')
-	   	// }
-	   	
-
-	   	console.log('memoText--- ' + memoText)
-	     event.preventDefault();
-	     var memo_text = memoText;
-	     var memo_date = today;
-	    
-	     var userData = {
-	       memo_text: memo_text,
-	       memo_date: memo_date
-	     };
-	 // after data is captured, api request is submitted via below function
-	    logDailyMemos(user_id, userData.memo_text, userData.memo_date);
-	    location.reload();
-	    // $('.tap-target').tapTarget('close');
-	   });
-
-
-	// function that posts data into database.
-	  function logDailyMemos(user_id, memo_text, memo_date) {
-	    $.post("/api/memos", {
-	      user_id: user_id,
-	      memo_text: memo_text,
-	      memo_date: memo_date
-	    })
-	    .then(function() {
-	      window.location.replace(data);
-	      // If there's an error, log the error
-	    })
-	    .catch(function(err) {
-	      console.log(err);
-	    });
-	  }
-
-
-
-function viewActiveMemos(data, active_memos){
-	console.log(data);
-	var memoList = $("<ul class='staggeredList'>").addClass('memoList')
-	$(".activeMemos").append(memoList);
-	for (var j= 0; j < data.length; j++){
-		var memo1 = data[j].Memo_Text
-		var memo2 = data[j].Memo_Date
-		memo2 = moment(memo2, "YYYY-MM-DD").format('MM/DD/YYYY');
-		var memos1 = $('<li class="memo2">').text(memo2)
-		var memos2 = $('<li class="memo1">').text(memo1)
-
-		$(".memoList").append(memos1), memos2);
-
+	// POST -> memos to DB 
+	//--------------------------------------------------
+	function logDailyMemos(user_id, memo_text, memo_date) {
+		$.post("/api/memos", {
+			user_id: user_id,
+			memo_text: memo_text,
+			memo_date: memo_date
+		}).then(function() {
+			window.location.replace(data);
+			// If there's an error, log the error
+		}).catch(function(err) {
+			console.log(err);
+		});
 	}
-// add code to push to active missions row on missions.html!
-// also add functionality to be able to remove missions if desired!
-}
-}); // closure 
+
+	// Render memos in collapsible component
+	//--------------------------------------------------
+	function viewActiveMemos(data) {
+		console.log(data);
+		var memoList = $(".memoList").addClass('collapsible popout');
+		for (var j = 0; j < data.length; j++) {
+			var memoListItems = $("<li>").attr('list-id', data[j].id).addClass(
+				'memoListItems indigo lighten-4 z-depth-5')
+			// .addClass('blue-grey lighten-5')
+			var memoDateToShow = $('<div class="collapsible-header"><h6 class="memoDate">').html('MEMO | ' +
+				moment(data[j].Memo_Date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
+			var memoTextToShow = $('<div class="collapsible-body"><span class="memoText">').html(data[j].Memo_Text);
+			memoListItems.append(memoDateToShow, memoTextToShow);
+			memoList.prepend(memoListItems);
+		}
+	}
+}); // onready closure
