@@ -5,6 +5,7 @@ var async = require('async');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var flash = require('express-flash');
+var config =require('../config/config.js');
 
 
 
@@ -212,8 +213,9 @@ module.exports = function(app) {
                           port: 587,
                           secure: false, // true for 465, false for other ports
                           auth: {
-                              user: 'Nebula1',
-                              pass: 'Nebula123'
+
+                              user: 'apikey',
+                              pass: 'myKey'
                           }
                       });
 
