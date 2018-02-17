@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
     Mission_Result: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.STRING
     },
     Mission_Date: {
       type: DataTypes.DATE,

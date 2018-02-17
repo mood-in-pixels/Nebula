@@ -99,6 +99,27 @@
       res.json(data);
     });
   });
+
+  app.get("/api/active_missions", function(req, res) {
+    db.Active_Mission.findAll({
+      where: {
+        UserId: req.query.user_id
+      }
+    }).then(function(data) {
+      res.json(data);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  });
+  app.post("/api/active_missions", function(req, res) {
+    db.Active_Mission.create({
+      Mission_id: req.body.mission_id,
+      Activation_Date: req.body.activation_date,
+      UserId: req.body.user_id
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
   // Routes for memo
   // ==========================================================
   app.get("/api/memos", function(req, res) {

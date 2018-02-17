@@ -17,17 +17,10 @@
 	});
 
 
-	// $(".icon-btn").click(function() {
-	// 	var mission = $(this).attr('data-mission');
-	// 	console.log('Mission Selected ------ ' + mission)
-	// 	var $toastContent = $('<span>' + mission + ' added!</span>').add($('<button data-mission=' + mission + ' class=" btn-flat undoMission toast-action">UNDO</button>'));
-	// 	Materialize.toast($toastContent, 10000);
-	// });
-
-
 
 // authentification request to database
-  $.get("/api/user_data").then(function(data) {
+  $.get("/api/user_data")
+  .then(function(data) {
     // user = data.username
     user_id = data.id
 
@@ -42,7 +35,7 @@
           active_missions.push(data[i].Mission_id)
       	}
       }
-            viewActiveMissions(data,active_missions);
+        viewActiveMissions(data,active_missions);
 
     });
 
@@ -58,8 +51,6 @@
 
 	 // when any mood is selected in mood picker this section initiates api request to register items into database
    $(document).on("click", ".icon-btn", function() {
-   	let iconDefinition =
-   	$(this).attr("data-state", 1);
      event.preventDefault();
      var mission_id = $(this).attr("data-mission")
      var mission_result =  $(this).attr("data-state");
