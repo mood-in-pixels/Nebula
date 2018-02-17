@@ -19,9 +19,9 @@ module.exports = function(app) {
   app.get("/missions", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/missions/missions.html"));
   });
-  //   app.get("/about", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/about/about.html"));
-  // });
+    app.get("/about", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/about/about.html"));
+  });
   //   app.get("/moodmap", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/moodmap/moodmap.html"));
   // });
