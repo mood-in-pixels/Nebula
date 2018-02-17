@@ -27,11 +27,12 @@
     z-index: 2;
   }
   html, body {
-    /*background-color: rgba(0, 0, 0, 1);*/
+/*  background: linear-gradient( to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, .9));
     background: linear-gradient(#111, #000, #111);
     background: -webkit-linear-gradient(#111, #000, #111);
     background: -moz-linear-gradient(#111, #000, #111);
-    background: -o-linear-gradient(#111, #000, #111);
+    background: -o-linear-gradient(#111, #000, #111);*/
+    background-color: #000;
     margin: 0;
     padding: 0;
     height: 100%;

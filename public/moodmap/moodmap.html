@@ -56,14 +56,14 @@
 <!-- *********** MAIN PAGE CONTENT ********** -->
 	<!-- Instruction Feature Container -->
 	<div class="container">
-		<a class="instruction tiny black btn btn-floating" id="menu"><i class="tiny material-icons">radio_button_unchecked</i></a> 
+		<a class="instruction tiny indigo darken-3 btn btn-floating pulse" id="menu"><i class="tiny pulse material-icons">info</i></a> 
 		<!-- Tap Target Structure -->
 		<div class="tap-target black" data-activates="menu">
 			<br>
 			<div class="tap-target-content">
 				<!-- Tap Target Content -->
 				<h5>U.S. MOOD MAP</h5>
-				<h6 class="text-muted">2016 | <a href="http://news.gallup.com/poll/125066/State-States.aspx" id="gallup">GALLUP-HEALTHWAYS ANNUAL REPORT</a></h6>
+				<h6 class="text-muted">2016 | <a href="http://news.gallup.com/poll/125066/State-States.aspx" id="gallup">GALLUP-HEALTHWAYS REPORT</a></h6>
 				<p>Hover over each state to view their average reported well-being. Scores draw on <strong>5 core components of well-being</strong>:<br>
 				<br>
 				<em>• Purpose<br>
@@ -427,16 +427,16 @@
 	$(document).ready(function() {	
 	$(".dropdown-button").dropdown();	
 	// instruction set to open on page load
+	
+		// on instruction pulse button click, close or open the instruction panel
+		$(".instruction").on('click', function(){
 			$('.tap-target').tapTarget('open');
-		
-			// on instruction pulse button click, close or open the instruction panel
-			$(".instruction").click(function() {
-				$('.tap-target').tapTarget('open');
-			});
+			
+		});
 
-			$('ul.tabs').tabs('swipeable', 'true');
+		$('ul.tabs').tabs('swipeable', 'true');
 
-		}); // closure
+	}); // closure
 	</script>
 </body>
 </html>
