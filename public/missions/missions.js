@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+ // $(document).ready(function() {
 	"use strict";
 	$(function() {
 	  // let user;
@@ -8,7 +8,7 @@
 	$(".dropdown-button").dropdown();
 
 	// instructional feature discovery
-	$('.tap-target').tapTarget('open');
+	// $('.tap-target').tapTarget('open');
 	$(".instruction").click(function() {
 		if ($('.tap-target').tapTarget('open')){
 			$('.tap-target').tapTarget('close');
@@ -36,9 +36,9 @@
 	      user_id: user_id
 	    })
 	    .then(function(data) {
-	      let active_missions = []
-	      for (let i = 0; i <   data.length; i++) {
-	      	if (data[i].Mission_Result === 1){
+	      let active_missions = [];
+	      for (let i = 0; i < data.length; i++) {
+	      	if (data[i].Mission_Result == true){
 	          active_missions.push(data[i].Mission_id)
 	      	}
 	      }
@@ -58,8 +58,8 @@
 
 	 // when any mood is selected in mood picker this section initiates api request to register items into database
 	   $(document).on("click", ".icon-btn", function() {
+	   	let iconDefinition =
 	   	$(this).attr("data-state", 1);
-
 	     event.preventDefault();
 	     var mission_id = $(this).attr("data-mission")
 	     var mission_result =  $(this).attr("data-state");
@@ -81,7 +81,7 @@
 	 // after data is captured, api request is submitted via below function
 	    logDailyMission(user_id, userData.mission_id, userData.mission_result, userData.mission_date);
 	    location.reload();
-	    $('.tap-target').tapTarget('close');
+	    // $('.tap-target').tapTarget('close');
 	   });
 
 
