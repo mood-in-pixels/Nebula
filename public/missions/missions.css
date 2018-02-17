@@ -1,19 +1,16 @@
   @import url('https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Raleway:200');
-  /* Only important for font-family uniformity & footer position */
+ 
+  /* --------------------- NAVBAR / FOOTER / GLOBALS --------------------- */
 
-  nav, h1, h2, h3, footer {
+  nav, h1, h2, h3, h4, footer {
     font-family: 'Raleway Dots', sans-serif;
     letter-spacing: .4em;
     text-transform: uppercase;
     text-align: center;
     align-content: center;
   }
-
-  footer {
-    z-index: 20;
-  }
   a {
-    letter-spacing: .3em;
+    letter-spacing: .1em;
   }
   a:hover {
     color: #000;
@@ -21,16 +18,28 @@
     text-decoration: none;
   }
   .footer {
-    position: fixed;
+/*    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 2px;
+    background: transparent;*/
+    z-index: 2;
   }
-  body {
-    background-color: rgba(0, 0, 0, 1);
+  html, body {
+    /*background-color: rgba(0, 0, 0, 1);*/
+    background: linear-gradient(#111, #000, #111);
+    background: -webkit-linear-gradient(#111, #000, #111);
+    background: -moz-linear-gradient(#111, #000, #111);
+    background: -o-linear-gradient(#111, #000, #111);
+    margin: 0;
+    padding: 0;
+    height: 100%;
     color: #fff;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto';
+    font-weight: 200;
   }
+ /* --------------------- CONTENT --------------------- */
   .icon-btn {
     /*margin: 10%;*/
     display: block;
@@ -65,12 +74,16 @@
     font-size: .8em;
     letter-spacing: .05em;
   }
+
+/* 
+This feature was setting off the NavBar
+
 li {
   display: block;
   width: 80px;
   padding-left:12px;
   padding-right:12px;
-}
+}*/
 
 .missionIcon {
   position: relative;
@@ -81,11 +94,10 @@ li {
   top:0px;
   z-index: 2;
   padding-left:35%;
-  background-color: black;
+/*  background-color: #111;
   opacity: .6;
-
+*/
 }
-
 
 
 .btn-join {
