@@ -19,34 +19,35 @@
   <link href="members.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!-- *********** NAVBAR *********** -->
-  <!-- NavBar Dropdown Structure -->
-  <ul class="dropdown-content" id="dropdown1">
-    <li><a href="#!">A 1</a></li>
-    <li><a href="#!">A 2</a></li>
-    <li><a href="#!">A 3</a></li>
-  </ul>
-  <!-- NavBar Wrapper -->
-  <nav>
-    <div class="nav-wrapper black">
-      <a class="brand-logo center" href="/">NEBUL\</a>
-      <ul class="left hide-on-med-and-down" id="nav-mobile">
-        <!-- NavBar Dropdown Trigger -->
-        <li><a class="dropdown-button" data-activates="dropdown1" href="#!"><i class="material-icons right">more_vert</i></a></li>
-        <li><a href="/missions">MISSIONS</a></li>
-        <li><a href="../moodmap/moodmap.html">MAP</a></li>
-        <li><a href="../about/about.html">ABOUT</a></li>
-      </ul>
-      <ul class="right hide-on-med-and-down" id="nav-mobile">
-        <!-- Sign up -->
-        <li><a href="#"><i class="material-icons">account_circle</i></a></li>
-        <!-- Login -->
-        <li><a href="/logout">LOGOUT</a></li>
-      </ul>
-    </div>
-  </nav>
-<!-- *********** END NAVBAR *********** -->
+  <!-- *********** NAVBAR *********** -->
 
+  <!-- NavBar Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="../meditate/meditate.html">Meditate</a></li>
+    <li><a href="../moodmap/moodmap.html">Map</a></li>
+    <!-- <li class="divider"></li> -->
+    <!-- <li><a href="/memos">Memos</a></li> -->
+  </ul>
+  <nav>
+      <div class="nav-wrapper black">
+        <a href="/" class="brand-logo center">NEBUL\</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
+          <li><a href="/members">MOODS</a></li>
+          <li><a href="/meditate">MEDITATE</a></li>
+          <li><a href="/map">MAP</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <!-- <li><a href="#">SIGNUP</a></li> -->
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
+          <li><a href="/logout"><i class="material-icons">clear</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  <br>
+  <!-- *********** END NAVBAR *********** -->
 
 
 <!-- *********** MAIN CONTENT ********** -->

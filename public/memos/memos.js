@@ -33,14 +33,18 @@ $(function() {
 		$.get("/api/memos", {
 			user_id: user_id
 		}).then(function(data) {
-			for (var m = 0; m < data.length; m++) {
-				var memoID = data[m].id;
-				var memoText = data[m].Memo_Text;
-				var memoDate = data[m].Memo_Date;
-				console.log('BINGO!--- ' + memoID + " | " + memoText + " | " + memoDate);
+			let memoDates = []
+			for (let i = 0; i < data.length; i++) {
+			    memoDates.push(moment(data[i].Memo_Date,"YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
+			    memoDates.push(moment(data[i].Memo_Date,"YYYY-MM-DD").format("M/D/YYYY"))
 			}
-			// call viewActiveMemos() passing data obj
-			viewActiveMemos(data);
+			viewActiveMemos(data, memoDates);
+
+			if($.inArray(moment().format("M/D/YYYY"),memoDates)>-1) {
+			  $("#submit-memo").addClass("disabled");
+			  // $(".memo").text('CHECK BACK IN TOMORROW TO LOG ANOTHER MEMO');
+			}
+			
 		});
 	});
 
@@ -77,18 +81,21 @@ $(function() {
 
 	// Render memos in collapsible component
 	//--------------------------------------------------
-	function viewActiveMemos(data) {
+	function viewActiveMemos(data, memoDates) {
 		console.log(data);
 		var memoList = $(".memoList").addClass('collapsible popout');
+
 		for (var j = 0; j < data.length; j++) {
 			var memoListItems = $("<li>").attr('list-id', data[j].id).addClass(
 				'memoListItems indigo lighten-4 z-depth-5')
-			// .addClass('blue-grey lighten-5')
-			var memoDateToShow = $('<div class="collapsible-header"><h6 class="memoDate">').html('MEMO | ' +
-				moment(data[j].Memo_Date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
+			
+			var memoDateToShow = $('<div class="collapsible-header"><h6 class="memoDate">').html(moment(data[j].Memo_Date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
+
 			var memoTextToShow = $('<div class="collapsible-body"><span class="memoText">').html(data[j].Memo_Text);
 			memoListItems.append(memoDateToShow, memoTextToShow);
 			memoList.prepend(memoListItems);
 		}
 	}
+
+
 }); // onready closure

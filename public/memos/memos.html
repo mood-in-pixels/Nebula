@@ -24,50 +24,35 @@
 
 <body>
 
-<!-- *********** NAVBAR *********** -->
-  
+  <!-- *********** NAVBAR *********** -->
+
   <!-- NavBar Dropdown Structure -->
-  <ul class="dropdown-content" id="dropdown1">
-    <li>
-      <a href="/members">Daily</a>
-    </li>
-    <li>
-      <a href="/missions">Missions</a>
-    </li><!-- <li class="divider"></li> -->
-    <li>
-      <a href="/memos">Memos</a>
-    </li>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="../meditate/meditate.html">Meditate</a></li>
+    <li><a href="../moodmap/moodmap.html">Map</a></li>
+    <!-- <li class="divider"></li> -->
+    <!-- <li><a href="/memos">Memos</a></li> -->
   </ul>
   <nav>
-    <div class="nav-wrapper black">
-      <a class="brand-logo center" href="#"><i class="material-icons">bubble_chart</i></a>
-      <ul class="left hide-on-med-and-down" id="nav-mobile">
-        <!-- Dropdown Trigger -->
-        <li>
-          <a class="dropdown-button" data-activates="dropdown1" href="#!">MOODS</a>
-        </li>
-        <li>
-          <a href="/meditate">MEDITATE</a>
-        </li>
-        <li>
-          <a href="/moodmap">MAP</a>
-        </li>
-        <li>
-          <a href="/about">ABOUT</a>
-        </li>
-      </ul>
-      <ul class="right hide-on-med-and-down" id="nav-mobile">
-        <!-- <li><a href="#">SIGNUP</a></li> -->
-        <li>
-          <a href="/login"><i class="material-icons">account_circle</i></a>
-        </li>
-        <li>
-          <a href="/signup"><i class="material-icons">help</i></a>
-        </li>
-      </ul>
-    </div>
-  </nav><br>
-<!-- *********** END NAVBAR *********** -->
+      <div class="nav-wrapper black">
+        <a href="/" class="brand-logo center">NEBUL\</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
+          <li><a href="/members">MOODS</a></li>
+          <li><a href="/meditate">MEDITATE</a></li>
+          <li><a href="/map">MAP</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <!-- <li><a href="#">SIGNUP</a></li> -->
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
+          <li><a href="/logout"><i class="material-icons">clear</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  <br>
+  <!-- *********** END NAVBAR *********** -->
   
 
 <!-- *********** MAIN CONTENT ********** -->
@@ -89,13 +74,12 @@
         <div class="row">
           <br>
           <br>
-          <div class="input-field col s12">
+          <div class="input-field align-center col s11">
             <i class="material-icons prefix">mode_edit</i> 
-            <textarea class="materialize-textarea memo validate" id="icon_prefix2" required="true" type=
-            "text"></textarea> <label data-error="Oops! You cannot submit a blank memo." data-success=
-            "Woohoo! Keep typing or hit submit!" for="icon_prefix2">Memo</label> <button class=
-            "btn btn-flat waves-effect waves-light transparent white-text" id="submit-memo" type=
-            "submit">S U B M I T</button>
+            <textarea class="materialize-textarea memo validate" id="icon_prefix2" required="true" type="text"></textarea> 
+            <label data-error="Oops! Make sure to add text before submitting." for="icon_prefix2">Memo</label> 
+            <button class="btn btn-flat waves-effect waves-light transparent white-text" id="submit-memo" name="action" type="submit">S U B M I T</button>
+            
           </div>
         </div>
       </form>
@@ -111,18 +95,19 @@
       </div>
       <div class="col s2"></div>
     </div>
+    <div class="row col s12" id="moodGraph"></div>
   </div>
 <!-- *********** END MAIN CONTENT *********** -->
 
 
 <!-- *********** FOOTER *********** -->
-  <footer class="footer page-footer">
+  <!-- <footer class="footer page-footer">
     <div class="footer-copyright">
       <div class="container text-center">
         © 2018 NEBUL\
       </div>
     </div>
-  </footer>
+  </footer> -->
 <!-- *********** END FOOTER *********** -->
 
   <!-- Custom JS -->
