@@ -25,7 +25,7 @@
     user_id = data.id
 
     // Request sent to server to retrieve user's active missions from database.
-    $.get("/api/missions", {
+    $.get("/api/active_missions", {
       user_id: user_id
     })
     .then(function(data) {
@@ -35,9 +35,9 @@
           active_missions.push(data[i].Mission_id)
       	}
       }
-        viewActiveMissions(data,active_missions);
-
+        markActiveMissions(data,active_missions);
     });
+
 
   });
 
@@ -76,6 +76,34 @@
    });
 
 
+
+
+
+
+   $(document).on("click", ".btn-join", function() {
+     event.preventDefault();
+     var mission_id = $(this).attr("data-mission")
+     var activation_date = today;
+
+     var userData = {
+       mission_id: mission_id,
+       activation_date: mission_date,
+     };
+
+     ActivateMission(user_id,userData.mission_id, userData.activation_date)
+
+     console.log(mission_id)
+     // $("#"+mission_id ".joined").addClass("hidden")
+     // $("#"+mission_id ".join").addClass("hidden")
+
+
+
+   });
+
+
+
+
+
 	// function that posts data into database.
   function logDailyMission(user_id, mission_id, mission_result, mission_date) {
     $.post("/api/missions", {
@@ -95,7 +123,22 @@
 
 
 
-	function viewActiveMissions(data, active_missions){
+  function ActivateMission(user_id, mission_id, activation_date) {
+    $.post("/api/active_missions", {
+      user_id: user_id,
+      mission_id: mission_id,
+      activation_date: activation_date
+    })
+    .then(function() {
+      window.location.replace(data);
+      // If there's an error, log the error
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+  }
+
+	function markActiveMissions(data, active_missions){
 		console.log(data);
 	// add code to push to active missions row on missions.html!
 	// also add functionality to be able to remove missions if desired!
