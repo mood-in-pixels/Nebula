@@ -120,6 +120,26 @@
       res.json(data);
     });
   });
+  app.post("/api/active_mission_remove", function(req, res) {
+    console.log("---------------------")
+    console.log(req.body.mission_id)
+    console.log("---------------------")
+    console.log(req.body.user_id)
+    console.log("---------------------")
+
+    db.Active_Mission.destroy({
+      where: {
+        Mission_id: req.body.mission_id,
+        UserId: req.body.user_id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  // DELETE FROM post WHERE status = 'inactive';
+
+
   // Routes for memo
   // ==========================================================
   app.get("/api/memos", function(req, res) {
