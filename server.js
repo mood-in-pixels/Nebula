@@ -9,9 +9,10 @@ var session = require("express-session");
 var passport = require("./config/passport");
 var cookieParser = require('cookie-parser');
 var nodemailer = require('nodemailer');
-var flash = require('express-flash');
+// var flash = require('express-flash');
 var crypto = require('crypto');
 var async = require('async');
+require('dotenv').load();
 
 
 // Setting up port and requiring models for syncing
@@ -33,6 +34,20 @@ app.use(passport.session());
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 // require("./routes/user-api-routes.js")(app);
+// function request(req, res) {
+//     var store = '';
+
+//     request.on('data', function(data) 
+//     {
+//         store += data;
+//     });
+//     request.on('end', function() 
+//     {  console.log(store);
+//         response.setHeader("Content-Type", "text/json");
+//         response.setHeader("Access-Control-Allow-Origin", "*");
+//         response.end(store)
+//     });
+//  } 
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

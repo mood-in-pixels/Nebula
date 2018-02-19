@@ -15,6 +15,27 @@
     // They won't get this or even be able to access this page if they aren't authorized
     res.json("/members");
   });
+//   app.post('/api/login',function(req, res, next){passport.authenticate('local', function(err, user){
+//             if(err){return next(err)}
+//             if (!user){res.local("username", req.param('username'));
+//             return res.render('login', { error: true });
+//           }// make passportjs setup the user object, serialize the user, ..
+//             req.login(user, {}, function(err) {
+//             if (err) { return next(err) };
+//             return res.redirect("/members");
+//             });
+//             })(req, res, next);
+//             return;
+//            }
+// );
+//   app.post("/api/login", passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+//   res.redirect("/members");
+// });
+  // app.post("/api/login", function(req, res) {
+  //   // Sending the user back the route to the members page because the redirect will happen on the front end
+  //   // They won't get this or even be able to access this page if they aren't authorized
+  //   res.json("/members");
+  // });
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
