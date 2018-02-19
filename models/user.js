@@ -52,6 +52,10 @@ module.exports = function(sequelize, DataTypes) {
   User.hook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
+  User.hook("beforeUpdate", function(user) {
+    console.log('this is before update!!!!', user.password);
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
 
   User.associate = function(models) {
     // We're saying that a Post should belong to an Author
