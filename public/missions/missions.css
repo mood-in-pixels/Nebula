@@ -124,3 +124,7 @@ li {
   margin-top: 10px;
   margin-bottom:15px;
 }
+
+.material-icons {
+  transform: scale(1.4);
+}

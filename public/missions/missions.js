@@ -270,6 +270,13 @@ $(function() {
       }
     }
 
+    function seedMissions(){
+      logDailyMission(user_id,"Meditate","Completed", "02/12/2018")
+
+    // const missionArray = ["Meditate","Yoga","Exercise","Sleep","Eat_Well"
+    // ,"Socialize","Gratitude","Write","Volunteer","Water","Vegetables","Read"
+    // ,"Dance","Breathe","Creativity"]
+    }
 
 
 }); // closure
