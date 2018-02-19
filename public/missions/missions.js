@@ -1,8 +1,9 @@
  // $(document).ready(function() {
 "use strict";
 $(function() {
-	  // let user;
-	  let user_id;
+    // let user;
+    let user_id;
+	  const today = moment().format('MM/DD/YYYY');
     const missionArray = ["Meditate","Yoga","Exercise","Sleep","Eat_Well"
     ,"Socialize","Gratitude","Write","Volunteer","Water","Vegetables","Read"
     ,"Dance","Breathe","Creativity"]
@@ -14,17 +15,17 @@ $(function() {
 
 
 
-	// navbar dropdown
-	$(".dropdown-button").dropdown();
+  // navbar dropdown
+  $(".dropdown-button").dropdown();
 
-	// instructional feature discovery
-	// $('.tap-target').tapTarget('open');
-	$(".instruction").click(function() {
-		if ($('.tap-target').tapTarget('open')){
-			$('.tap-target').tapTarget('close');
-		}
-		else {$('.tap-target').tapTarget('open');}
-	});
+  // instructional feature discovery
+  // $('.tap-target').tapTarget('open');
+  $(".instruction").click(function() {
+    if ($('.tap-target').tapTarget('open')){
+      $('.tap-target').tapTarget('close');
+    }
+    else {$('.tap-target').tapTarget('open');}
+  });
 
 
 
@@ -41,24 +42,35 @@ $(function() {
     .then(function(data) {
       let activeMissions = [];
       for (let i = 0; i < data.length; i++) {
-      	if (data[i].Mission_id){
+        if (data[i].Mission_id){
           activeMissions.push(data[i].Mission_id)
-          console.log("pushing to array")
-      	}
+        }
       }
         markActiveMissions(data,activeMissions);
     });
 
-
+    // Request sent to server to retrieve user's missions submitted today.
+    $.get("/api/missions_by_day", {
+      user_id: user_id,
+      mission_date: today
+    })
+    .then(function(data) {
+      let todaysMissions = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].Mission_id){
+          todaysMissions.push(data[i].Mission_id)
+        }
+      }
+        markSubmittedMissions(data,todaysMissions);
+    });
   });
 
 
 
-	// GLOBAL VARIABLES + KEY FUNCTIONS
-	// ===============================================
+  // GLOBAL VARIABLES + KEY FUNCTIONS
+  // ===============================================
 
-	// Setting today's date
-	const today = moment().format('MM/DD/YYYY');
+  // Setting today's date
 
 	 // when any mood is selected in mood picker this section initiates api request to register items into database
    $(document).on("click", ".icon-btn", function() {
@@ -252,6 +264,17 @@ $(function() {
         $(id).find(".icon-btn").attr("data-state","active")
       } else {
         $(id).find(".joined").addClass("hidden")
+      }
+    }
+  }
+
+
+  function markSubmittedMissions (data, todaysMissions) {
+    for (var i = 0; i < missionArray.length; i++) {
+      const id = "#"+missionArray[i]
+      if ($.inArray(missionArray[i],todaysMissions)>-1) {
+        $(id).find(".missionQuestion").text("Already submitted...")
+        $(id).find(".missionInput").text("")
       }
     }
   }

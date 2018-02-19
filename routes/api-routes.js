@@ -110,6 +110,7 @@
       res.json(err);
     });
   });
+
   app.post("/api/missions", function(req, res) {
     db.Mission.create({
       Mission_id: req.body.mission_id,
@@ -118,6 +119,19 @@
       UserId: req.body.user_id
     }).then(function(data) {
       res.json(data);
+    });
+  });
+
+  app.get("/api/missions_by_day", function(req, res) {
+    db.Mission.findAll({
+      where: {
+        UserId: req.query.user_id,
+        Mission_Date: req.query.mission_date
+      }
+    }).then(function(data) {
+      res.json(data);
+    }).catch(function(err) {
+      res.json(err);
     });
   });
 
@@ -142,12 +156,6 @@
     });
   });
   app.post("/api/active_mission_remove", function(req, res) {
-    console.log("---------------------")
-    console.log(req.body.mission_id)
-    console.log("---------------------")
-    console.log(req.body.user_id)
-    console.log("---------------------")
-
     db.Active_Mission.destroy({
       where: {
         Mission_id: req.body.mission_id,

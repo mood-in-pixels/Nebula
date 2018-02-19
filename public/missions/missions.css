@@ -49,6 +49,7 @@
     align-content: center;
     width:25%;
     height: 250px;
+
     /*border: 1px solid silver;*/
   }
   .material-tooltip>.backdrop {
@@ -70,6 +71,10 @@
     font-weight: 100;
     font-size: .8em;
     letter-spacing: .05em;
+  }
+  .material-tooltip {
+    max-width:350px;
+    font-family: 'Roboto';
   }
 
 /*
@@ -125,6 +130,11 @@ li {
   margin-bottom:15px;
 }
 
-.material-icons {
+.icon-btn .material-icons {
   transform: scale(1.4);
+}
+
+.completed, .not-completed, .unfollow {
+  cursor:pointer;
+  margin: 5px;
 }
