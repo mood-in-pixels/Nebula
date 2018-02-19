@@ -221,13 +221,13 @@
                 port: 587,
                 secure: false, // true for 465, false for other ports
                 auth: {
-                  user: 'apikey',
-                  pass: 'myKey'
+                  user: process.env.USERNAME,
+                  pass: process.env.PASSWORD
                 }
               });
               var mailOptions = {
                 to: user.email,
-                from: 'reset@NEBULA.com',
+                from: 'Nebula@demo.com',
                 subject: 'Password Reset',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                   'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
