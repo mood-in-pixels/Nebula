@@ -1,15 +1,18 @@
-  @import url('https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Raleway:200');
+
   /* --------------------- NAVBAR / FOOTER / GLOBALS --------------------- */
 
   nav, h1, h2, h3, h4, footer {
-    font-family: 'Raleway Dots', sans-serif;
+    font-family: 'Roboto'
     letter-spacing: .4em;
     text-transform: uppercase;
     text-align: center;
     align-content: center;
+    font-size: 2.2rem;
+
   }
   a {
     letter-spacing: .1em;
+    margin-left: -5px;
   }
   a:hover {
     color: #000;

@@ -1,9 +1,13 @@
 
 /* ---- reset ---- */
-@import url('https://fonts.googleapis.com/css?family=Codystar:300|Raleway+Dots|Raleway:200');
+
 
 body, html {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'roboto'
+}
+
+nav {
+  font-weight: 280;
 }
 body {
   margin: 0;
@@ -18,7 +22,7 @@ canvas {
 }
 
 .brand-logo {
-  font-family: 'Codystar', cursive;
+  font-family: 'roboto'
   font-size: 6em;
 
 }
