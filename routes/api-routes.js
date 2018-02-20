@@ -5,6 +5,7 @@
  var crypto = require('crypto');
  var nodemailer = require('nodemailer');
  var flash = require('express-flash');
+ var bcrypt = require("bcrypt-nodejs");
  var config = require('../config/config.json');
  module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -15,32 +16,7 @@
     // They won't get this or even be able to access this page if they aren't authorized
     res.json("/members");
   });
-  //  app.post("/api/login", function(req, res) {
-  //   // Sending the user back the route to the members page because the redirect will happen on the front end
-  //   // They won't get this or even be able to access this page if they aren't authorized
-  //   res.json("/members");
-  // });
-//   app.post('/api/login',function(req, res, next){passport.authenticate('local', function(err, user){
-//             if(err){return next(err)}
-//             if (!user){res.local("username", req.param('username'));
-//             return res.render('login', { error: true });
-//           }// make passportjs setup the user object, serialize the user, ..
-//             req.login(user, {}, function(err) {
-//             if (err) { return next(err) };
-//             return res.redirect("/members");
-//             });
-//             })(req, res, next);
-//             return;
-//            }
-// );
-//   app.post("/api/login", passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
-//   res.redirect("/members");
-// });
-  // app.post("/api/login", function(req, res) {
-  //   // Sending the user back the route to the members page because the redirect will happen on the front end
-  //   // They won't get this or even be able to access this page if they aren't authorized
-  //   res.json("/members");
-  // });
+  
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
@@ -269,35 +245,43 @@
   // ==========================================================================================================================================
   // Reset User Password
   // ==========================================================================================================================================
-  app.post('/reset', function(req, res) {
-    console.log(req.body, req.params);
+    app.post('/reset', function(req, res) {
+      console.log(req.body, req.params);
     async.waterfall([
-              function(done) {
+      function(done) {
         db.User.find({
-          where: {
-            token: req.body.token
-          }
+            where: {
+              token: req.body.token
+            }
         }).then(function(user) {
-          console.log('we found this user!---------', user);
-          if (user) {
-            user.updateAttributes({
-              password: req.body.password,
-              token: null
-            }).then(function(weUpdatedThisPassword) {
-              res.redirect('/');
-              console.log('we updated this users password----', weUpdatedThisPassword);
-            })
-          }
-          user.save(function(err) {
-            req.logIn(user, function(err) {
-              done(err, user);
+            console.log('we found this user!---------', user);
+            if (user) {
+              user.updateAttributes({
+                password: req.body.password,
+                token: null
+              }).then(function(weUpdatedThisPassword) {
+                  res.redirect('/');
+                  console.log('we updated this users password----', weUpdatedThisPassword);
+                })
+              db.User.prototype.validPassword = function(password) {
+              return bcrypt.compareSync(password, this.password);
+                };
+                User.hook("beforeUpdate", function(user) {
+                  console.log('this is before update!!!!', user.password);
+                  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+                });
+            }
+            user.save(function(err) {
+              req.logIn(user, function(err) {
+                done(err, user);
+              });
             });
           });
-        });
-              },
+      },
 
-            ], function(err) {
-      res.redirect('/');
-    });
+    ], function(err) {
+        res.redirect('/');
+       });
   });
- }; // *** END ***
+  
+}; // *** END ***

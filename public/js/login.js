@@ -24,35 +24,7 @@ $(document).ready(function() {
     $.post("/api/login", {
       username: username,
       password: password
-    })
-
-  // function loginUser(username, password) {
-  //   console.log('we hit loginUser')
-
-  //   $.ajax({
-  //       url: "/api/login",
-  //       headers: {"Content-Type" : "application/json"},
-  //       // ContentType : "application/json",
-  //       method: "POST",
-  //       processData: false,
-  //       body: JSON.stringify ({
-  //       "username": username, 
-  //       "password": password
-  //       }),
-  //       dataType: "JSON",
-  //       contentType: "application/json"
-  //   })
-   // $.ajax({
-   //    method: "POST",
-   //    url: "/api/login",
-   //    crossDomain:true, 
-   //    dataType: "json",
-   //    data:JSON.stringify({username: "username", password: "password"})
-   //   }).done(function ( data ) {
-   //        alert("ajax callback response:"+JSON.stringify(data));
-       // })
-
-    .then(function(data) {
+    }).then(function(data) {
       window.location.replace(data);
       // If there's an error, log the error
     })
