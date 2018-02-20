@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+#world {
+  background: transparent;
+  position:absolute;
+  width:55%;
+  height:55%;
+  top: 150px;
+  left: 300px;
+  overflow:hidden;
+}
+#instructions{
+  position:absolute;
+  width:100%;
+  top:50%;
+  margin: auto;
+  margin-top:5px;
+  margin-left: -100px;
+  font-family:'Open Sans', sans-serif;
+  color:#653f4c10
+  font-size:.9em;
+  text-transform: uppercase;
+  text-align : center;
+  user-select: none;
+}
+.lightInstructions {
+  color:#993f4c;
+  font-size:.8em;
+}
