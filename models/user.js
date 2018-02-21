@@ -25,17 +25,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      // validate: {
-      //   len: [3,20]
-      // }
     },
     // The password cannot be null.
     password: {
       type: DataTypes.STRING,
       allowNull: false
-      // validate:{
-      //   len:[5,40]
-      // }
     },
      token: {
       type: DataTypes.STRING,
@@ -47,11 +41,11 @@ module.exports = function(sequelize, DataTypes) {
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
+  //Automatically hashing user password when first signing up
   User.hook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
+   //Automatically hashing user password when resetting password
   User.hook("beforeUpdate", function(user) {
     console.log('this is before update!!!!', user.password);
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
