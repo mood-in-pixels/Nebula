@@ -1,5 +1,4 @@
-# NEBUL\
-
+![alt text](public/images/nebula_navbar.png "NEBUL\")
 ### [NEBUL\\](https://nebula-moods.herokuapp.com/)
 
 This application will track your state of mind with a single click.
@@ -37,6 +36,28 @@ Then create SQL database using
 schema.sql
 ```
 
+## Deployment
+
+Deployment is through Heroku using JAWs addon for MySQL and Sequelize
+
+## Built With
+
+* [Sequelize](http://docs.sequelizejs.com/)
+* [Passport](http://www.passportjs.org/)
+* [React](http://www.reactjs.org)
+* [modernizr](https://modernizr.com/)
+* [Granim](https://sarcadass.github.io/granim.js/)
+* [Canvas](https://github.com/hustcc/canvas-nest.js)
+* [Particles.js](https://vincentgarreau.com/particles.js/)
+* [Materialize](https://materializecss.com)
+* [Bootstrap](https://getbootstrap.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [Nightmare](http://www.nightmarejs.org/)
+* [amCharts](https://www.amcharts.com/)
+* [canvas-nest](http://git.hust.cc/canvas-nest.js/)
+* [JAWs](https://devcenter.heroku.com/articles/jawsdb)
+
+
 ## Running the tests
 
 We used Nightmare to create tests. To run the tests enter
@@ -46,29 +67,6 @@ npm test
 on the command line.
 
 Once running the test will create a new user and log them into the site, creating a screen capture at the moment of on-click event.
-
-## Deployment
-
-Deployment is through Heroku using JAWs for MySQL data base requirements.
-
-## Built With
-
-* [Sequelize](http://docs.sequelizejs.com/)
-* [Passport](http://www.passportjs.org/)
-* [React](http://www.reactjs.org)
-* [modernizr](https://modernizr.com/)
-* [Wow](http://mynameismatthieu.com/WOW/)
-* [Granim](https://sarcadass.github.io/granim.js/)
-* [Slick](https://github.com/kenwheeler/slick/)
-* [Canvas](https://github.com/hustcc/canvas-nest.js)
-* [Particles.js](https://vincentgarreau.com/particles.js/)
-* [Materialize](https://materializecss.com)
-* [Path](https://nodejs.org/api/path.html)
-* [Bootstrap](https://getbootstrap.com/)
-* [Google Fonts](https://fonts.google.com/)
-* [Nightmare](http://www.nightmarejs.org/)
-* [JAWs](https://devcenter.heroku.com/articles/jawsdb)
-
 
 ## Authors
 
