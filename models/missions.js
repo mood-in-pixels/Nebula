@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     Mission_Date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     }
   });
