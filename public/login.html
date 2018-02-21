@@ -14,21 +14,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!--  Icons ~ Material -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
   <!--Custom CSS-->
   <link href="css/style.css" rel="stylesheet">
 
   <div id="particles-js"></div>
 
-<!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!--******** Dropdown menu ********** -->
+  <script>
+   $(".dropdown-button").dropdown();
+ </script>
 
-<body>
-<ul id="dropdown1" class="dropdown-content">
+  <!-- *********** NAVBAR *********** -->
+
+  <!-- NavBar Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
     <li><a href="/meditate">Meditate</a></li>
     <li><a href="/moodmap">Map</a></li>
-    <!-- <li class="divider"></li> -->
-    <!-- <li><a href="/memos">Memos</a></li> -->
   </ul>
   <nav>
       <div class="nav-wrapper black">
@@ -36,27 +40,30 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
     <!-- Dropdown Trigger -->
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
-          <li><a href="/members">MOODS</a></li>
+          <!-- <li><a href="/members">MOODS</a></li>
           <li><a href="/missions">MISSIONS</a></li>
-          <li><a href="/memos">MEMOS</a></li>
+          <li><a href="/memos">MEMOS</a></li> -->
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!-- <li><a href="#">SIGNUP</a></li> -->
           <li><a href="/about">ABOUT</a></li>
           <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
           <li><a href="/logout"><i class="material-icons">clear</i></a></li>
         </ul>
       </div>
     </nav>
+    <!-- *********** END NAVBAR *********** -->
   <br>
 </head>
+
+
+<!-- *********** MAIN CONTENT ********** -->
 <body>
   <div class="container">
-    <!-- #canvas-basic element tied to graident background via granim.js  -->
     <div class="row">
       <canvas id="canvas-basic"></canvas>
       <div class="col-md-6 col-md-offset-3">
         <h2>Login Form</h2>
+        <!-- Login form -->
         <form class="login">
           <div class="form-group">
             <label for="usernameInput">Username</label> <input class="form-control" id="username-input"
@@ -66,38 +73,55 @@
             <label for="passwordInput">Password</label> <input class="form-control" id="password-input"
             placeholder="Password" type="password">
           </div><button class="btn btn-default" id="login" type="submit">Login</button>
-        </form><br>
+        </form>
+        <!-- End of login form w/submit -->
+        <br>
+        <!-- Links for SignUp/Reset -->
         <p>Or sign up <a href="/signup">here</a></p>
          <br>
          <br>
         <p>Reset password <a href ="/forgot">here</a></p>
       </div>
     </div>
-  </div>
+  </div> <!-- Close of container -->
+<!-- *********** END MAIN CONTENT *********** -->
 
-  <style>
+<!-- ************* FOOTER ***************** -->
+  <footer class="footer page-footer black">
+    <div class="footer-copyright">
+      <div class="container text-center">
+        © 2018 NEBUL\
+      </div>
+    </div>
+  </footer>
+<!-- ************* END FOOTER ************* -->
+</body>
+</html> 
+<!-- *************************************** -->
+
+
+<!-- ************************************************** -->
+<!-- ***************** Start of CSS ******************* -->
+
+<style>
 
 body {
   margin: 0;
   background-color: #17182f;
   color: white;
 }
-
 h2 {
   color:white;
   font-size: 28px;
 }
-
 canvas {
   display: block;
   vertical-align: bottom;
 }
-
 nav {
   position: relative;
   z-index: 2;
 }
-
 form {
   position: relative;
 }
@@ -326,18 +350,7 @@ form {
 }); 
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/granim/1.1.0/granim.js"></script>
 
-    <script>
-
-$(".dropdown-button").dropdown();
-    
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/1.1.0/granim.js"></script>
-
-
-
-</body>
-</html>
