@@ -266,7 +266,7 @@
               db.User.prototype.validPassword = function(password) {
               return bcrypt.compareSync(password, this.password);
                 };
-                db.User.hook("beforeUpdate", function(user) {
+                User.hook("beforeUpdate", function(user) {
                   console.log('this is before update!!!!', user.password);
                   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
                 });
