@@ -1,5 +1,5 @@
   @import url('https://fonts.googleapis.com/css?family=Codystar|Raleway+Dots|Raleway:200');
- 
+
   /* --------------------- NAVBAR / FOOTER / GLOBALS --------------------- */
 
   nav, h1, h2, h3, h4, footer {
@@ -267,5 +267,12 @@
    display: none;
  }
 
-
+ .material-tooltip {
+   max-width:350px;
+   min-width:300px;
+   font-family: 'Roboto';
+   text-align: left;
+   color: #C0C0C0;
+   font-size: 1.1em;
+ }
 

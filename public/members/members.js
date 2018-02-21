@@ -3,6 +3,14 @@ $(function() {
   // creating global variables that will be populated with authentification check
   let user;
   let user_id;
+  let databaseDates = [];
+  let uniqueDatabaseDates=[];
+  let calendarDates=[];
+  let emotion_dates = [];
+  let missions = [];
+  let memos = [];
+  let emotions = []
+  let todaySQL = moment().format('YYYY-MM-DD');
   const moodArray = ['Irritated', 'Energetic', 'Confident'
   , 'Couragious', 'Stressed', 'Anxious', 'Overwhelmed', 'Happy', 'Delighted', 'Fresh'
   , 'Content', 'Secure', 'Peaceful', 'Sad', 'Depressed', 'Gloomy', 'Guilty'
@@ -27,7 +35,7 @@ $(function() {
       user_id: user_id
     })
     .then(function(data) {
-      let emotion_dates = []
+
       for (let i = 0; i <   data.length; i++) {
           emotion_dates.push(moment(data[i].Emotion_Date,"YYYY-MM-DD").format("M/D/YYYY"))
       }
@@ -42,6 +50,118 @@ $(function() {
         placeInCircle("btn-drop", "colorwheel", 140)
         placeInCircle("moodName", "colorwheel", 0)
       }
+
+      emotions=data
+
+      $.get("/api/memos", {
+        user_id: user_id
+      })
+      .then(function(dataM) {
+        memos=dataM
+
+
+        $.get("/api/missions", {
+          user_id: user_id
+        })
+        .then(function(dataI) {
+          missions=dataI
+
+          console.log(emotions)
+          console.log(memos)
+          console.log(missions)
+
+
+
+          missions.forEach(function(item){
+            databaseDates.push(item.Mission_Date)
+          });
+
+
+          memos.forEach(function(item){
+            databaseDates.push(item.Memo_Date)
+          });
+
+          emotions.forEach(function(item){
+            databaseDates.push(item.Emotion_Date)
+          });
+
+
+          uniqueDatabaseDates = getUnique(databaseDates)
+
+
+
+          for (var i = 0; i < uniqueDatabaseDates.length; i++) {
+
+          let formatedSelectorDate = moment(uniqueDatabaseDates[i],"YYYY-MM-DD").format("M/D/YYYY")
+
+
+          let selector = "[data-date2='"+formatedSelectorDate+"']"
+
+          let fEmotions = filterObjectsOnEmotionDate(emotions,uniqueDatabaseDates[i])
+          let fMemos = filterObjectsOnMemoDate(memos,uniqueDatabaseDates[i])
+          let fMissions = filterObjectsOnMissionDate(missions,uniqueDatabaseDates[i])
+
+            for (let i = 0; i < fEmotions.length; i++) {
+              if (fEmotions[i]){
+                let currentEmotion =  $(selector).attr("mood")
+                  if (currentEmotion) {
+                    currentEmotion = currentEmotion + "<br><a class='x-small material-icons unfollow' style='color:"+fEmotions[i].Color +" ;'>brightness_1</a>" +fEmotions[i].Emotion
+                    $(selector).attr("mood",currentEmotion)
+
+                  } else {
+                    currentEmotion = "<br><a class='x-small material-icons unfollow' style='color:"+fEmotions[i].Color +" ;'>brightness_1</a>" +fEmotions[i].Emotion
+                    $(selector).attr("mood",currentEmotion)
+
+                  }
+                console.log("adding mood")
+              }
+            }
+
+
+            for (let i = 0; i < fMemos.length; i++) {
+              if (fMemos[i]){
+                let currentMemo =  $(selector).attr("memo")
+                if (currentMemo) {
+                  currentMemo = currentMemo + "<br>" + fMemos[i].Memo_Text
+                  $(selector).attr("memo",currentMemo)
+                } else {
+                  currentMemo = "<br>" + fMemos[i].Memo_Text
+                  $(selector).attr("memo",currentMemo)
+                }
+              }
+            }
+
+            for (let i = 0; i < fMissions.length; i++) {
+              if (fMissions[i]){
+                let currentMission =  $(selector).attr("mission")
+                if (currentMission) {
+                  currentMission = currentMission + "<br><i class='material-icons'>star</i>" + fMissions[i].Mission_id + ": " + fMissions[i].Mission_Result
+                  $(selector).attr("mission",currentMission)
+
+                } else {
+                  currentMission = "<br><i class='material-icons'>star</i>" + fMissions[i].Mission_id + ": " + fMissions[i].Mission_Result
+                  $(selector).attr("mission",currentMission)
+                }
+              }
+            }
+          }
+
+
+
+
+
+
+          addTooltip(calendarDates);
+
+
+
+
+
+
+        });
+
+      });
+
     });
 
   });
@@ -51,7 +171,41 @@ $(function() {
 
 
 
+  function getUnique (originalArray) {
+  let uniq = [...new Set(originalArray)];
+  return uniq
+  }
 
+
+  function filterObjectsOnEmotionDate (obj_array,lookup) {
+  var new_obj_array = obj_array.filter(function(obj) {
+    if(lookup.indexOf(obj.Emotion_Date) === -1) {
+      return false;
+    }
+      return true;
+  });
+  return new_obj_array
+  }
+
+  function filterObjectsOnMemoDate (obj_array,lookup) {
+  var new_obj_array = obj_array.filter(function(obj) {
+    if(lookup.indexOf(obj.Memo_Date) === -1) {
+      return false;
+    }
+      return true;
+  });
+  return new_obj_array
+  }
+
+  function filterObjectsOnMissionDate (obj_array,lookup) {
+  var new_obj_array = obj_array.filter(function(obj) {
+    if(lookup.indexOf(obj.Mission_Date) === -1) {
+      return false;
+    }
+      return true;
+  });
+  return new_obj_array
+  }
 
 // Creation of color wheel
 // GLOBAL VARIABLES + KEY FUNCTIONS
@@ -180,7 +334,6 @@ function hex(x) {
 
 
   function createCalendar(data, emotion_dates) {
-    console.log(data)
 
     const days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     const monthsNum = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
@@ -195,18 +348,20 @@ function hex(x) {
       for (let h = 0; h < days[i]; h++) {
         const element = document.getElementById(months[i]).getElementsByClassName('inner')[0];
         let   calendarDate = (i + 1) + '/' + (h + 1) + '/' + 2018
+        calendarDates.push(calendarDate)
 
 
         if ($.inArray(calendarDate,emotion_dates)>-1) {
           let emotion_index=($.inArray(calendarDate,emotion_dates))
           if (data[emotion_index].Positive_Emotion =="true") {
-          element.innerHTML = element.innerHTML + ('<div class="day positive" style="background-color: '+data[emotion_index].Color+'"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+          element.innerHTML = element.innerHTML + ('<div class="day positive" style="background-color: '+data[emotion_index].Color+'" data-date2="' + calendarDate + '"></div>');
           } else {
-          element.innerHTML = element.innerHTML + ('<div class="day negative" style="background-color: '+data[emotion_index].Color+'"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+          element.innerHTML = element.innerHTML + ('<div class="day negative" style="background-color: '+data[emotion_index].Color+'" data-date2="' + calendarDate + '"></div>');
           }
         } else {
-          element.innerHTML = element.innerHTML + ('<div class="day"><span class="dayIn" data-date2="' + calendarDate + '">' + (h + 1) + '</span></div>');
+          element.innerHTML = element.innerHTML + ('<div class="day" data-date2="' + calendarDate + '"></div>');
         }
+
       }
 
       // $(".day").click(function() {
@@ -215,6 +370,46 @@ function hex(x) {
       // });
     }
   }
+
+
+
+
+
+  function addTooltip(dates){
+    console.log(dates)
+    for (let i = 0; i < dates.length; i++) {
+
+      let selector = "[data-date2='"+dates[i]+"']"
+
+      $(selector).addClass("tooltipped")
+      $(selector).attr("data-html","true")
+      $(selector).attr("data-position","bottom")
+      $(selector).attr("data-delay","50")
+
+      if (!$(selector).attr("memo")) {
+        $(selector).attr("memo","<br>No Messages Saved")
+      }
+
+      if (!$(selector).attr("mood")) {
+        $(selector).attr("mood","<br>No Emotions Saved")
+      }
+
+      if (!$(selector).attr("mission")) {
+        $(selector).attr("mission","<br>No Missions Saved")
+      }
+
+      let dataTooltip = "<strong> Date: "+ dates[i] +"</strong><br>"
+      +"<hr><strong> Memos:</strong>"           +$(selector).attr("memo")
+      +"<hr><strong> Moods Recorded:</strong>"  +$(selector).attr("mood")
+      +"<hr><strong> Completed Missions:</strong>"+$(selector).attr("mission")
+      +"</small>"
+
+      $(selector).attr("data-tooltip",dataTooltip)
+    }
+    console.log($('.tooltipped'))
+    $('.tooltipped').tooltip();
+  }
+
 
 });
 
