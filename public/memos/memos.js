@@ -21,22 +21,6 @@ $(function() {
 	$('.collapsible').collapsible();
 	$('.memoList').collapsible('open', 0);
 	 
-	// $('.modal').modal();
-	// $('.modal').modal({
-	//     dismissible: true, // Modal can be dismissed by clicking outside of the modal
-	//     opacity: .5, // Opacity of modal background
-	//     inDuration: 300, // Transition in duration
-	//     outDuration: 200, // Transition out duration
-	//     startingTop: '4%', // Starting top style attribute
-	//     endingTop: '10%', // Ending top style attribute
-	//   //   ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-	//   //     alert("Ready");
-	//   //     console.log(modal, trigger);
-	//   //   },
-	//   //   complete: function() { alert('Closed'); } // Callback for Modal close
-	//   }
-	// );
-	// $('#modal1').modal('open');
 
 /*==================================================================*/
 //  <--> OPERATIONS <-->
@@ -81,18 +65,9 @@ $(function() {
 			    memoDates.push(moment(data[i].Memo_Date,"YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
 				}
 			    memoDates.push(moment(data[i].Memo_Date,"YYYY-MM-DD").format("M/D/YYYY"));
-			    // var memoDate = data[i].Memo_Date;
-			    // var memoID = data[i].id;
-			    // var memoText = data[i].Memo_Text;
-			    // console.log('ID: ' + memoID + ' | ' + memoDate + '  | ' + memoText );
+			  
 			}
 			viewActiveMemos(data, memoDates, colorToday);
-			
-
-			// if($.inArray(moment().format("dddd, MMMM Do YYYY"),memoDates)>-1) {
-			//   $("#submit-memo").addClass("disabled");
-			//   // $(".memo").text('CHECK BACK IN TOMORROW TO LOG ANOTHER MEMO');
-			// }
 			
 		}); 
 	};
@@ -145,21 +120,9 @@ $(function() {
 
 			var memoTextToShow = $('<div class="collapsible-body"><span class="memoText">').html(data[j].Memo_Text);
 
-			// var btnColor = $("<button class='btn btn-color inline'>").css('background', colorToday);
-					// $(".modal-color").append(btnColor);
-			// if(emoDateToPush === memoDateToShow){
-			// 	console.log('blah!' + emoDateToPush + " " + memoDateToPush)
-			// 	memoTextToShow.css('background', colorToday)
-			// }
-			// else{console.log('blerg!' + emoDateToPush + " " + memoDateToPush)}
-
 			memoListItems.append(memoDateToShow, memoTextToShow);
 			memoList.prepend(memoListItems);
 		}
 	}
 
-	// $(".collapsible-header").on("click", function(){
-	// 	var currentMemo = $(this)
-	// 	console.log(currentMemo)
-	// })
 }); // onready closure
