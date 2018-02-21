@@ -16,18 +16,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!--  Icons ~ Material -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!--  background -->
   <div id="particles-js"></div>
+  </div>
 
-<!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head>
+  <!--******** Dropdown menu ********** -->
+  <script>
+   $(".dropdown-button").dropdown();
+ </script>
 
-<body>
+  <!-- *********** NAVBAR *********** -->
+
+  <!-- NavBar Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="/meditate">Meditate</a></li>
     <li><a href="/moodmap">Map</a></li>
-    <!-- <li class="divider"></li> -->
-    <!-- <li><a href="/memos">Memos</a></li> -->
   </ul>
   <nav>
       <div class="nav-wrapper black">
@@ -35,12 +39,11 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
     <!-- Dropdown Trigger -->
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
-          <li><a href="/members">MOODS</a></li>
+          <!-- <li><a href="/members">MOODS</a></li>
           <li><a href="/missions">MISSIONS</a></li>
-          <li><a href="/memos">MEMOS</a></li>
+          <li><a href="/memos">MEMOS</a></li> -->
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!-- <li><a href="#">SIGNUP</a></li> -->
           <li><a href="/about">ABOUT</a></li>
           <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
           <li><a href="/logout"><i class="material-icons">clear</i></a></li>
@@ -48,10 +51,17 @@
       </div>
     </nav>
   <br>
+  </head>
+  <!-- *********** END NAVBAR *********** -->
+
+
+  <!-- *********** MAIN CONTENT ********** -->
+  <body>
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Password Reset</h2>
+        <!-- new password form -->
         <form class="reset">
           <div class="form-group">
             <label for="newPassword">New Password</label>
@@ -65,78 +75,110 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-         
         </form>
+        <!-- Submit button -->
          <button id="reset" class="btn btn-default">Submit</button>
       </div>
     </div>
-  </div>
+  </div> <!-- Close of container -->
+  <!-- *********** END MAIN CONTENT *********** -->
 
-  <style>
+  <!-- *********** FOOTER *********** -->
+   <footer class="footer page-footer black">
+    <div class="footer-copyright">
+      <div class="container text-center">
+        © 2018 NEBUL\
+      </div>
+    </div>
+  </footer>
+<!-- *********** END FOOTER *********** -->
+</body>
+</html>
+<!--************  Start of JS  *************** -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" >
+   
+    // reset password token created
+    $("#reset").on("click", function(){
+        var token = window.location.pathname.substring(7)
+        if ($("#newPassword1-input").val()===$("#newPassword2-input").val()){
+          resetUser(token, $("#newPassword2-input").val())
+        }
+    })
+    function resetUser(token, password) {
+      $.post("/reset", {
+        token: token,
+        password: password
+      }).then(function(data) {
+        window.location.replace('/');
+        // If there's an error, handle it by throwing up a boostrap alert
+      }).catch(handleLoginErr);
+    }
+
+    function handleLoginErr(err) {
+      $("#alert .msg").text(err.responseJSON);
+      $("#alert").fadeIn(500);
+    }
+
+  </script>
+<!-- ***************** End of JS ********************* -->
+<!-- ************************************************* -->
 
 
-/* ---- reset ---- */
+<!-- ************************************************** -->
+<!-- ***************** Start of CSS ******************* -->
+<style>
 
 body {
   margin: 0;
   background-color: #17182f;
   color: white;
 }
-
 h2 {
   color:white;
   font-size: 28px;
 }
-
 canvas {
   display: block;
   vertical-align: bottom;
 }
-
 nav {
   position: relative;
   z-index: 2;
 }
-
 form {
   position: relative;
 }
 
-/* ---- particles.js container ---- */
+/* ************ Particles.js Container ***************/
 
 #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
 .container {
   z-index: 3;
   position: relative;
   align-content: center;
-
 }
-
 .form-control {
   color: white;
 }
-
-  #canvas-image {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  
-    background-position-x: 50%;
-    background-position-y: 65%;
+#canvas-image {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position-x: 50%;
+  background-position-y: 65%;
 }
 
-  /* --------------------- NAVBAR / FOOTER / GLOBALS --------------------- */
-
+/***************** Footer/Globals css ******************/
   nav, h1, h2, h3, h4, footer {
     font-family: 'Roboto'
     letter-spacing: .4em;
@@ -161,7 +203,6 @@ form {
     background: transparent;
   }
   html, body {
-    /*background-color: rgba(0, 0, 0, 1);*/
     background: linear-gradient(#111, #000, #111);
     background: -webkit-linear-gradient(#111, #000, #111);
     background: -moz-linear-gradient(#111, #000, #111);
@@ -176,21 +217,11 @@ form {
 
     }
   </style>
-</head>
-<body>
 
-   <script>
-
-$(".dropdown-button").dropdown();
-    
-  </script>
-
+<!-- ********* Background ******************** -->
   <canvas id="canvas-image"></canvas>
   <script src="js/granim.js"></script>
   <script>
-
-
-
 
   particlesJS("particles-js", {
   "particles": {
@@ -321,39 +352,3 @@ $(".dropdown-button").dropdown();
 }); 
 
 </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" >
-   
-
-    $("#reset").on("click", function(){
-        var token = window.location.pathname.substring(7)
-        // console.log("in the click------------", token);
-        if ($("#newPassword1-input").val()===$("#newPassword2-input").val()){
-          resetUser(token, $("#newPassword2-input").val())
-        }
-
-    })
-    function resetUser(token, password) {
-      $.post("/reset", {
-        token: token,
-        password: password
-      }).then(function(data) {
-        window.location.replace('/');
-        // If there's an error, handle it by throwing up a boostrap alert
-      }).catch(handleLoginErr);
-    }
-
-    function handleLoginErr(err) {
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
-    }
-
-  </script>
-
-
-
-</body>
-
-</html>
-
