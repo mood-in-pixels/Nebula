@@ -15,31 +15,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!--  Icons ~ Material -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+   <!--  background -->
   <div id="particles-js"></div>
 
-<!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head>
-<body>
- <ul id="dropdown1" class="dropdown-content">
+  <!--******** Dropdown menu ********** -->
+  <script>
+   $(".dropdown-button").dropdown();
+ </script>
+
+  <!-- *********** NAVBAR *********** -->
+
+  <!-- NavBar Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
     <li><a href="/meditate">Meditate</a></li>
     <li><a href="/moodmap">Map</a></li>
-    <!-- <li class="divider"></li> -->
-    <!-- <li><a href="/memos">Memos</a></li> -->
   </ul>
   <nav>
-      <div class="nav-wrapper black">
-        <a href="/" class="brand-logo center">N E B U L \</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <div class="nav-wrapper black">
+      <a href="/" class="brand-logo center">N E B U L \</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
     <!-- Dropdown Trigger -->
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
-          <li><a href="/members">MOODS</a></li>
-          <li><a href="/missions">MISSIONS</a></li>
-          <li><a href="/memos">MEMOS</a></li>
-        </ul>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
+        <!-- <li><a href="/members">MOODS</a></li>
+        <li><a href="/missions">MISSIONS</a></li>
+        <li><a href="/memos">MEMOS</a></li> -->
+      </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!-- <li><a href="#">SIGNUP</a></li> -->
           <li><a href="/about">ABOUT</a></li>
           <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
           <li><a href="/logout"><i class="material-icons">clear</i></a></li>
@@ -47,11 +50,18 @@
       </div>
     </nav>
   <br>
+  </head>
+<!-- *********** END NAVBAR *********** -->
+
+
+<!-- *********** MAIN CONTENT ********** -->
+  <body>
   <div class="container">
     <div class="row">
       <canvas id="canvas-basic"></canvas>
       <div class="col-md-6 col-md-offset-3">
         <h2>Sign Up Form</h2>
+        <!-- Sign up form -->
         <form class="signup">
           <div class="form-group">
             <label for="InputEmail1">Email address</label> <input class="form-control" id="email-input"
@@ -69,64 +79,68 @@
             <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span> <span class=
             "sr-only">Error:</span> <span class="msg"></span>
           </div>
-
+          <!-- Submit button -->
           <button class="btn btn-default" id="signup" type="submit">Sign Up</button>
-          
         </form><br>
+        <!-- Link to Login -->
         <p>Or log in <a href="/login">here</a></p>
       </div>
     </div>
-  </div>
+  </div> <!--Close of container-->
+<!-- *********** END MAIN CONTENT *********** -->
 
-  <style>
+<!-- *********** FOOTER *********** -->
+  <footer class="footer page-footer black">
+    <div class="footer-copyright">
+      <div class="container text-center">
+        © 2018 NEBUL\
+      </div>
+    </div>
+  </footer>
+<!-- *********** END FOOTER *********** -->
+</body>
+</html> 
 
+<!-- ************************************************** -->
+<!-- ***************** Start of CSS ******************* -->
 
-/* ---- reset ---- */
+<style>
 
-body {
-  margin: 0;
-  background-color: #17182f;
-  color: white;
-}
+  body {
+    margin: 0;
+    background-color: #17182f;
+    color: white;
+  }
+  h2 {
+    color:white;
+    font-size: 28px;
+  }
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+  nav {
+    position: relative;
+    z-index: 2;
+  }
+/* ************ Particles.js Container ***************/
 
-h2 {
-  color:white;
-  font-size: 28px;
-}
-
-canvas {
-  display: block;
-  vertical-align: bottom;
-}
-
-nav {
-  position: relative;
-  z-index: 2;
-}
-
-
-/* ---- particles.js container ---- */
-
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.form-control {
-  color: white;
-}
-
-#container {
-  color: white;
-}
-
-.container {
-  z-index: 3;
-  position: relative;
-  align-content: center;
-
-}
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .form-control {
+    color: white;
+  }
+  #container {
+    color: white;
+  }
+  .container {
+    z-index: 3;
+    position: relative;
+    align-content: center;
+  }
   #canvas-image {
     position: absolute;
     display: block;
@@ -136,13 +150,11 @@ nav {
     right: 0;
     bottom: 0;
     left: 0;
-  
     background-position-x: 50%;
     background-position-y: 65%;
-}
+  }
 
-
-  /* --------------------- NAVBAR / FOOTER / GLOBALS --------------------- */
+/***************** Navbar/Footer/Globals css ******************/
 
   nav, h1, h2, h3, h4, footer {
     font-family: 'Roboto'
@@ -168,7 +180,6 @@ nav {
     background: transparent;
   }
   html, body {
-    /*background-color: rgba(0, 0, 0, 1);*/
     background: linear-gradient(#111, #000, #111);
     background: -webkit-linear-gradient(#111, #000, #111);
     background: -moz-linear-gradient(#111, #000, #111);
@@ -180,19 +191,12 @@ nav {
     font-family: 'Roboto';
     font-weight: 200;
   }
-    }
-  </style>
-</head>
-<body>
+</style>
 
-
-
-  <canvas id="canvas-image"></canvas>
-  <script src="js/granim.js"></script>
-  <script>
-
-
-
+<!-- ********* Background ******************** -->
+<canvas id="canvas-image"></canvas>
+<script src="js/granim.js"></script>
+<script>
 
   particlesJS("particles-js", {
   "particles": {
@@ -324,18 +328,8 @@ nav {
 
 </script>
  
-
-
-
 <script type="text/javascript" src="js/signup.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/1.1.0/granim.js"></script>
 
 
 
-</body>
-</html>
- <script>
-
-$(".dropdown-button").dropdown();
-    
-  </script>
