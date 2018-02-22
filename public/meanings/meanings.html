@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NEBUL\</title><!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="2180moods - Mobile Mood Tracking App" name="description">
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!--jQuery 3.2.1 --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--Custom CSS-->
+  <link href="main.css" rel="stylesheet">
+  <!-- Granim js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/1.1.0/granim.js"></script>
+
+   <!-- Compiled and minified CSS ~ Boostrap 3.3.7  -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+   
+    <!-- $jQuery 3.3.1 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+    <!-- Compiled and minified CSS ~ Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+    <!-- Compiled and minified JS ~ Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    
+    <!--  Icons ~ Material -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Custom JS -->
+  <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+ <ul id="dropdown1" class="dropdown-content">
+    <li><a href="/meditate">Meditate</a></li>
+    <li><a href="/moodmap">Map</a></li>
+    <!-- <li class="divider"></li> -->
+    <!-- <li><a href="/memos">Memos</a></li> -->
+  </ul>
+  <nav>
+      <div class="nav-wrapper black">
+        <a href="/" class="brand-logo center">N E B U L \</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
+          <li><a href="/members">MOODS</a></li>
+          <li><a href="/missions">MISSIONS</a></li>
+          <li><a href="/memos">MEMOS</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <!-- <li><a href="#">SIGNUP</a></li> -->
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
+          <li><a href="/logout"><i class="material-icons">clear</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container gradient">
+      
+      <div class="canvas-interactive-wrapper">
+        <canvas id="canvas-interactive"> </canvas> 
+        <div class="text" > Welcome to the Color Canvas! <br> Click on an emotion to learn more about it's color.</div>
+        <div class="cta-wrapper">
+          <a href="#default-state" id="default-state-cta" class="active">•</a>
+          <a href="#violet-state" id="violet-state-cta">Guilty</a>
+          <a href="#pink-state" id="pink-state-cta">Compassionate</a>
+          <a href="#blue-state" id="blue-state-cta">Depressed</a>
+          <a href="#green-state" id="green-state-cta">Happy</a>
+          <a href="#yellow-state" id="yellow-state-cta">Stressed</a>
+          <a href="#orange-state" id="orange-state-cta">Energetic</a>
+          <a href="#red-state" id="red-state-cta">Angry</a>
+          <a href="#teal-state" id="teal-state-cta">Content</a>
+        </div>
+      </div>
+      <div id="default" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="violet" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="pink" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="blue" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="green" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="yellow" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="orange" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="teal" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+      <div id="red" class = "grid" style="margin-top: -580px; position: absolute; margin-left: -100px;"></div>
+    </div>
+
+    <footer class="container-fluid text-center">
+     
+    </footer>
+  </body>
+</html>
