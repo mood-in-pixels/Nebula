@@ -5,6 +5,8 @@
 body, html {
   font-family: 'roboto';
   font-weight:200;
+  min-width: 100%;
+  min-height:100%;
 /*    background-color: black;
 */}
 
@@ -12,7 +14,7 @@ h1, h2, h3, h4, h5, h6, nav {
   font-family: 'Roboto';
   font-weight: 280;
 }
-/*body, .parallax {
+body, .parallax {
   margin: 0;
   background-color: black;
   width: 100%;
@@ -28,7 +30,7 @@ canvas {
   font-family: 'roboto';
   font-size: 6em;
 
-}*/
+}
 .definition, .description {
   text-transform: uppercase;
   font-size: 1.4em;
@@ -76,6 +78,17 @@ li{
   padding: 5px;
 }
 
+.parallax-container2 {
+  height: 300px !important;
+  position: relative;
+  overflow: hidden;
+  margin-top: 22%;
+  margin-left: 15%;
+
+
+}
+
+
 /* ---- particles.js container ---- */
 /*
 #particles-js {
@@ -102,3 +115,8 @@ img {
   
 }
 		}*/
+  /* margin-bottom: -10%; */
+  margin-top: 40%;
+  position:  absolute;
+  z-index:  5;
+  
