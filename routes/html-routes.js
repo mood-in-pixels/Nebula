@@ -54,6 +54,9 @@ module.exports = function(app) {
     app.get("/meditate", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/meditation/meditation.html"));
   });
+     app.get("/meanings", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/mmeanings/meanings.html"));
+  });
   //--------------------------------------------------------------------------
   //route for fogot password
   //--------------------------------------------------------------------------
