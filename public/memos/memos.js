@@ -137,7 +137,7 @@ $(function() {
 		logDailyMemos(user_id, 'Busy Busy Busy day….' , '1/19/2018')
 		logDailyMemos(user_id, 'Saturday!!!!!!!! I finally caught up on my sleep.' , '1/20/2018')
 		logDailyMemos(user_id, 'I met my old friend from high school. ' , '1/25/2018')
-		logDailyMemos(user_id, 'I can't believe January is almost over. Only 2 more months of winter…' , '1/31/2018')
+		logDailyMemos(user_id, 'I cant believe January is almost over. Only 2 more months of winter…' , '1/31/2018')
 		logDailyMemos(user_id, 'Yoga class was amazing…' , '2/5/2018')
 		logDailyMemos(user_id, 'Started new mission… I will try drink less soda… wish me luck future me.' , '2/4/2018')
 		logDailyMemos(user_id, 'All these skinny people… ' , '2/6/2018')
