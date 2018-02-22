@@ -294,12 +294,95 @@ $(function() {
     }
 
     function seedMissions(){
-      logDailyMission(user_id,"Meditate","Completed", "02/12/2018")
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '2/12/2018')
+      logDailyMission(user_id, 'Yoga' , 'Completed' , '1/4/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/6/2018')
+      logDailyMission(user_id, 'Socialize' , 'Completed' , '2/3/2018')
+      logDailyMission(user_id, 'Socialize' , 'Completed' , '1/8/2018')
+      logDailyMission(user_id, 'Sleep' , 'Completed' , '1/20/2018')
+      logDailyMission(user_id, 'Gratitude' , 'Completed' , '1/12/2018')
+      logDailyMission(user_id, 'Write' , 'Completed' , '2/23/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/14/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '1/3/2018')
+      logDailyMission(user_id, 'Vegetables' , 'Completed' , '2/17/2018')
+      logDailyMission(user_id, 'Water' , 'Completed' , '2/4/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/1/2018')
+      logDailyMission(user_id, 'Breathe' , 'Completed' , '1/10/2018')
+      logDailyMission(user_id, 'Creativity' , 'Completed' , '2/16/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/31/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/13/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/22/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/5/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/2/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/15/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/20/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/19/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/14/2018')
+      logDailyMission(user_id, 'Yoga' , 'Completed' , '1/17/2018')
+      logDailyMission(user_id, 'Yoga' , 'Completed' , '2/5/2018')
+      logDailyMission(user_id, 'Yoga' , 'Completed' , '1/6/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/21/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/30/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/29/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/7/2018')
+      logDailyMission(user_id, 'Socialize' , 'Completed' , '1/25/2018')
+      logDailyMission(user_id, 'Socialize' , 'Completed' , '2/2/2018')
+      logDailyMission(user_id, 'Socialize' , 'Completed' , '1/22/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '2/8/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '2/9/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '2/18/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '1/18/2018')
+      logDailyMission(user_id, 'Read' , 'Completed' , '1/27/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '2/1/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/26/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '2/15/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/23/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/7/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '2/10/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/19/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/21/2018')
+      logDailyMission(user_id, 'Dance' , 'Completed' , '1/16/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/24/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/11/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/28/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/13/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '1/9/2018')
+      logDailyMission(user_id, 'Exercise' , 'Completed' , '2/11/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/19/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/21/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/16/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/24/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/11/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/28/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/13/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '1/9/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '2/11/2018')
+      logDailyMission(user_id, 'Meditate' , 'Completed' , '2/11/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '2/9/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '2/18/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/18/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/27/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '2/1/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/26/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '2/15/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/23/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/7/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '2/10/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/19/2018')
+      logDailyMission(user_id, 'Volunteer' , 'Completed' , '1/21/2018')
 
-    // const missionArray = ["Meditate","Yoga","Exercise","Sleep","Eat_Well"
-    // ,"Socialize","Gratitude","Write","Volunteer","Water","Vegetables","Read"
-    // ,"Dance","Breathe","Creativity"]
     }
+
+
+
+    $(document).on("click", "#seed", function() {
+      seedMissions()
+    })
+
+
+
+
+
 
 
 }); // closure
