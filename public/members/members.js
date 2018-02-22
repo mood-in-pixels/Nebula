@@ -401,7 +401,7 @@ function hex(x) {
       let dataTooltip = "<strong> Date: "+ dates[i] +"</strong><br>"
       +"<hr><strong> Memos:</strong>"           +$(selector).attr("memo")
       +"<hr><strong> Moods Recorded:</strong>"  +$(selector).attr("mood")
-      +"<hr><strong> Completed Missions:</strong>"+$(selector).attr("mission")
+      +"<hr> <strong> Completed Missions:</strong>"+$(selector).attr("mission")
       +"</small>"
 
       $(selector).attr("data-tooltip",dataTooltip)

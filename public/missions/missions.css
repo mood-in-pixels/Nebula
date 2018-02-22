@@ -69,12 +69,16 @@
   .tap-target-content>p {
     font-family: Roboto;
     font-weight: 100;
-    font-size: .8em;
+    font-size: 1em;
     letter-spacing: .05em;
   }
   .material-tooltip {
     max-width:350px;
     font-family: 'Roboto';
+    font-size: 1.3em;
+  }
+  .material-tooltip .text-muted {
+    font-size: 3em;
   }
 
 /*
