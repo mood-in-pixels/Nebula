@@ -1,6 +1,6 @@
 {
-  "name": "2180moods",
-  "version": "1.0.0",
+  "name": "nebula",
+  "version": "2.0.0",
   "description": "### Mood in Pixels",
   "main": "index.js",
   "scripts": {
