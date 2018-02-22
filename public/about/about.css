@@ -40,9 +40,7 @@ body {
   font-family: 'roboto';
   letter-spacing: .1em;
   color: #fff;
-  animation-name: fadeIn;
-  animation-duration: 4.5s;
-  animation-delay: 0.1s;
+
 }
 .flex {
   display: flex;
