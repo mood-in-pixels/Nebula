@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/mood-in-pixels/2180moods/issues"
   },
-  "homepage": "https://github.com/mood-in-pixels/2180moods#readme",
+  "homepage": "https://github.com/mood-in-pixels/Nebula#readme",
   "dependencies": {
     "async": "^2.6.0",
     "bcrypt-nodejs": "0.0.3",
