@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,28 +16,19 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- MomentJS CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.js"></script>
+  <!-- Custom JS -->
+  <script src="missions.js" type="text/javascript"></script>
   <!-- Custom CSS -->
   <link href="missions.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-  <!-- *********** NAVBAR *********** -->
-
-<script> 
-$(document).ready(function(){
-$('.dropdown-button').dropdown(); 
-$(".button-collapse").sideNav();
-</script>
-
-  <!-- *********** NAVBAR *********** -->
-
-    <!-- *********** NAVBAR *********** -->
-
+ <!-- *********** NAVBAR *********** -->
     <!-- NavBar Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="/meditate">Meditate</a></li>
         <li><a href="/moodmap">Map</a></li>
-        <li><a href="/meanings">Meanings</a></li>
+        <li><a href="/meanings">Meaning</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="/members">MOODS</a></li>
@@ -45,6 +36,7 @@ $(".button-collapse").sideNav();
       <li><a href="/memos">MEMOS</a></li>
       <li><a href="/meditate">MEDITATE</a></li>
       <li><a href="/moodmap">MAP</a></li>
+      <li><a href="/meaning">MEANING</a></li>
       <li><a href="/about">ABOUT</a></li>
       <li><a href="/login"><i class="material-icons">person_outline</i></a></li>
       <li><a href="/logout"><i class="material-icons">clear</i></a></li>
@@ -52,8 +44,7 @@ $(".button-collapse").sideNav();
     </ul>
     <nav>
         <div class="nav-wrapper black">
-          <a href="/" class="brand-logo center"><i class="material-icons">dot</i></a>
-
+          <a href="/" class="brand-logo center">N E B U L \</a>
           <ul id="nav-mobile-left" class="left hide-on-med-and-down">
             <li><a class="dropdown-button" href="#" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
             <li><a href="/members">MOODS</a></li>
@@ -73,11 +64,14 @@ $(".button-collapse").sideNav();
   <!-- *********** END NAVBAR *********** -->
 
 <!-- *********** MAIN CONTENT ********** -->
-  <!-- Instruction Feature Container -->
-  <div class="container">
-    <a class="instruction black btn btn-floating" id="menu"><i class="material-icons">hdr_strong</i></a> <!-- Tap Target Structure -->
-    <div class="tap-target black" data-activates="menu">
-      <div class="tap-target-content">
+<!-- Instruction Feature Container -->
+<div class="container">
+  <a class="instruction tiny blue-grey darken-3 btn btn-floating pulse" id="menu"><i class="tiny pulse material-icons">info</i></a> 
+  <!-- Tap Target Structure -->
+  <div class="tap-target black" data-activates="menu">
+    <br>
+    <div class="tap-target-content">
+      <!-- Tap Target Content -->
         <h5>MISSIONS</h5>
         <p>Welcome to your missions page.<br>
         <br>
@@ -89,8 +83,10 @@ $(".button-collapse").sideNav();
       </div>
     </div>
   </div>
+  <!-- End Instruction -->
+  
+  <!-- Mission Container -->
   <div class="container center-align">
-    <!-- Mission Container -->
 
     <!-- Meditate -->
     <div class='missionCard btn-group' id="Meditate">
@@ -413,7 +409,18 @@ $(".button-collapse").sideNav();
     </div>
   </footer>
 <!-- *********** END FOOTER *********** -->
-  <!-- Custom JS -->
-  <script src="missions.js" type="text/javascript"></script>
+
+  <!-- Custom JS to stay on HTML page! -->
+    <script type="text/javascript">
+    $(document).ready(function() {  
+    $(".dropdown-button").dropdown(); 
+    $(".button-collapse").sideNav();
+    
+    // instruction set to open on page load
+      $(".instruction").on('click', function(){
+        $('.tap-target').tapTarget('open');
+      });
+    });
+  </script>
 </body>
 </html>

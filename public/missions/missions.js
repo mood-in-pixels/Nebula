@@ -1,6 +1,7 @@
- // $(document).ready(function() {
+  // $(document).ready(function() {
 "use strict";
 $(function() {
+
     // let user;
     let user_id;
 	  const today = moment().format('MM/DD/YYYY');
