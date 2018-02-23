@@ -31,17 +31,13 @@ $(function() {
 	$.get("/api/user_data").then(function(data) {
 		user_id = data.id;
 		username = data.username;
-		console.log(username);
 		$(".modal-header").text(username);
 
 		$.get("/api/emotions", {
 			user_id: user_id
 		}).then(function(data) {
-			console.log(data)
 			for (let i = 0; i < data.length; i++) {
 				var emoDateToPush = moment(data[i].Emotion_Date,"YYYY-MM-DD").format("dddd, MMMM Do YYYY");
-				console.log(emoDateToPush);
-				console.log(today2);
 				// if(emoDateToPush === today2){
 					colorToday = data[i].Color
 					getMemos(colorToday);
@@ -59,7 +55,7 @@ $(function() {
 				var memoDateToPush = moment(data[i].Memo_Date,"YYYY-MM-DD").format("dddd, MMMM Do YYYY");
 
 				if(memoDates.includes(memoDateToPush) === true) {
-					console.log('nope');
+					console.log('not available');
 				}
 				else {
 			    memoDates.push(moment(data[i].Memo_Date,"YYYY-MM-DD").format("dddd, MMMM Do YYYY"));
@@ -106,9 +102,7 @@ $(function() {
 	// Render memos in collapsible component
 	//--------------------------------------------------
 	function viewActiveMemos(data, memoDates, colorToday) {
-		console.log(data);
-		console.log(memoDates);
-		console.log(colorToday);
+
 		var memoList = $(".memoList").addClass('collapsible popout');
 		// var memoDateToPush = moment(data[j].Memo_Date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")
 

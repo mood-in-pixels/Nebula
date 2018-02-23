@@ -66,9 +66,6 @@ $(function() {
         .then(function(dataI) {
           missions=dataI
 
-          console.log(emotions)
-          console.log(memos)
-          console.log(missions)
 
 
 
@@ -376,7 +373,6 @@ function hex(x) {
 
 
   function addTooltip(dates){
-    console.log(dates)
     for (let i = 0; i < dates.length; i++) {
 
       let selector = "[data-date2='"+dates[i]+"']"
