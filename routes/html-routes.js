@@ -38,11 +38,11 @@ module.exports = function(app) {
   //--------------------------------------------------------------------------
   //internal routes after authentication
   //--------------------------------------------------------------------------
-  app.get("/memos", function(req, res) {
+  app.get("/memos", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/memos/memos.html"));
   });
- 
-  app.get("/missions", function(req, res) {
+
+  app.get("/missions", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/missions/missions.html"));
   });
     app.get("/about", function(req, res) {
