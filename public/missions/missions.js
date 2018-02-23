@@ -14,22 +14,6 @@ $(function() {
 
     cleanView()
 
-
-
-  // navbar dropdown
-  $(".dropdown-button").dropdown();
-
-  // instructional feature discovery
-  // $('.tap-target').tapTarget('open');
-  $(".instruction").click(function() {
-    if ($('.tap-target').tapTarget('open')){
-      $('.tap-target').tapTarget('close');
-    }
-    else {$('.tap-target').tapTarget('open');}
-  });
-
-
-
 // authentification request to databases
   $.get("/api/user_data")
   .then(function(data) {
