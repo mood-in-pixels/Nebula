@@ -29,7 +29,7 @@ footer {
     display: block;
     width: 1315px;
     height: 800px;
-    margin-left: -15%;
+    margin-left: -10.2%;
 }
  .cta-wrapper a {
     margin-top:130px;
@@ -39,36 +39,36 @@ footer {
 
 #default-state-cta {
   position: absolute;
-  margin-left: -40%;
+  margin-left: -35%;
 }
 
 #violet-state-cta {
   position: absolute;
-  margin-left: -35%;
+  margin-left: -30.6%;
  }
 #pink-state-cta {
   position: absolute;
-  margin-left: -27.5%;
+  margin-left: -24%;
  }
  #blue-state-cta {
   position: absolute;
-  margin-left: -15%;
+  margin-left: -12.5%;
  }
  #green-state-cta {
   position: absolute;
-  margin-left: -5%;
+  margin-left: -3.4%;
  }
  #yellow-state-cta {
   position: absolute;
-  margin-left: 2.6%;
+  margin-left: 3.7%;
  }
  #orange-state-cta {
   position: absolute;
-  margin-left: 11.5%;
+  margin-left: 12.2%;
  }
  #red-state-cta {
   position: absolute;
-  margin-left: 20.7%;
+  margin-left: 21%;
  }
  #teal-state-cta {
   position: absolute;
@@ -114,6 +114,10 @@ footer {
 
 .gradient {
     border-radius: 10px;
+}
+
+.grid{
+  margin-top: -55% !important;
 }
 
 .text {
@@ -162,4 +166,6 @@ footer {
     align-content: center;
 
     }
-  
+  span {
+    margin-top: 10%
+  }
