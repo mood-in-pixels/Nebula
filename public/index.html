@@ -90,7 +90,7 @@ $(".button-collapse").sideNav();
      
   </div>
 
-<div id="particles-js" data-intro="Click anywhere to create a star - they're free!" data-position="top, left" data-intro="Scroll down to learn more!" data-position="right"></div>
+<div id="particles-js" data-intro="Click anywhere to create a star - they're free!" data-position="top, left"></div>
 
   <div class="section black" >
     <div class="row container white-text">   
@@ -321,6 +321,11 @@ $(".button-collapse").sideNav();
 
         
    $('body').chardinJs('start')
+
+   $('body').on('click', function() {
+    $(this).chardinJs('stop');
+
+  });
 
   </script>
 </body>

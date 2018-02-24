@@ -23,8 +23,6 @@
   <!-- Custom CSS -->
   <link href="members.css" rel="stylesheet" type="text/css">
 
-   <link href="../css/chardinjs.css" rel="stylesheet">
-    <script src="../js/chardinjs.min.js"></script>
 </head>
 <body>
   <!-- *********** NAVBAR *********** -->
@@ -33,6 +31,7 @@
 $(document).ready(function(){
 $('.dropdown-button').dropdown(); 
 $(".button-collapse").sideNav();
+});
 </script>
 
   <!-- *********** NAVBAR *********** -->
@@ -57,7 +56,7 @@ $(".button-collapse").sideNav();
       <li><a href="/"><i class="material-icons">blur_on</i></a></li>
     </ul>
     <nav>
-        <div class="nav-wrapper black">
+        <div class="nav-wrapper black" >
            <a href="/" class="brand-logo center">N E B U L \</a>
 
           <ul id="nav-mobile-left" class="left hide-on-med-and-down">
@@ -81,10 +80,10 @@ $(".button-collapse").sideNav();
 
 <!-- *********** MAIN CONTENT ********** -->
   <div class="container-fluid">
-  <p class="text-center today"></p>
+  <p class="text-center today" ></p>
     <div class="container colorSelectionBox">
 
-      <div id="colorwheel" data-intro="How are ya feelin?" data-position="right">
+      <div id="colorwheel">
         <!-- color wheel goes here -->
       </div>
 
@@ -118,4 +117,5 @@ $(".button-collapse").sideNav();
   <!-- Custom JS -->
   <script src="members.js" type="text/javascript"></script>
 </body>
+
 </html>
