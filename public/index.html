@@ -14,6 +14,8 @@
     <!-- Compiled and minified JS ~ Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js" rel="stylesheet" ></script>
     <link href="landing.css" rel="stylesheet">  
+    <link href="css/chardinjs.css" rel="stylesheet">
+    <script src="js/chardinjs.min.js"></script>
 
     <script> 
     $(document).ready(function(){
@@ -53,10 +55,10 @@ $(".button-collapse").sideNav();
       <li><a href="/"><i class="material-icons">blur_on</i></a></li>
     </ul>
     <nav>
-        <div class="nav-wrapper black">
-           <a href="/" class="brand-logo center">N E B U L \</a>
+        <div class="nav-wrapper black"  >
+           <a href="/" class="brand-logo center" >N E B U L \</a>
 
-          <ul id="nav-mobile-left" class="left hide-on-med-and-down">
+          <ul id="nav-mobile-left" class="left hide-on-med-and-down" >
             <li><a class="dropdown-button" href="#" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
             <li><a href="/members">MOODS</a></li>
             <li><a href="/missions">MISSIONS</a></li>
@@ -69,22 +71,26 @@ $(".button-collapse").sideNav();
           </ul>
           <!-- Mobile -->
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">dialpad</i></a>
+
         </div>
       </nav>
 
+
+
+
+
   <!-- *********** END NAVBAR *********** -->
 
-
-  <div id="particles-js"></div>
+  <div id="particles-js" ></div>
 
 
     <div class="parallax-container" style="background-color: black";>
      <img src="images/nebula_navbar.png"  style= "margin-left: 40%; margin-top: 7%; position: absolute;"></div>
-    <div class="parallax">
+    <div class="parallax" >
      
   </div>
 
-<div id="particles-js"></div>
+<div id="particles-js" data-intro="Click anywhere to create a star - they're free!" data-position="top, left" data-intro="Scroll down to learn more!" data-position="right"></div>
 
   <div class="section black" >
     <div class="row container white-text">   
@@ -103,7 +109,7 @@ $(".button-collapse").sideNav();
   </div>
 
   <div class="parallax-container">
-    <div class="parallax"><img src="images/nebula-dark.png" class="img responsive-img center-align"></div>
+    <div class="parallax" ><img src="images/nebula-dark.png" class="img responsive-img center-align" ></div>
   </div>
 
 <!--  <div class="section black lighten-1">
@@ -162,6 +168,16 @@ $(".button-collapse").sideNav();
     position: relative;
   }
 
+  .chardinjs-tooltiptext {
+    margin-left: 15%;
+    display: inline-block;
+
+  }
+
+ /* .chardinjs-helper-layer.chardinjs-left {
+    border-top: transparent;
+  }
+*/
   #dropdown1 {
     width: 9% !important;
   }
@@ -304,7 +320,8 @@ $(".button-collapse").sideNav();
 });
 
         
-    
+   $('body').chardinJs('start')
+
   </script>
 </body>
 </html>
